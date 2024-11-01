@@ -2429,7 +2429,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 <!-- TODO: New table entry button here... -->
             </ui-flex-grid-row>
         `}renderTableHeader(){if(!this.data)return Ee``;const s=[];for(const e of this.data.data.table.header)s.push(Ee`
-                <th style="text-align: center; text-wrap: nowrap;">${e}</th>
+                <th style="text-align: center; text-wrap: pretty;">${e}</th>
             `);return Ee`${[...s]}`}renderTableBody(){if(!this.data)return Ee``;const s=[];for(const e of this.data.data.table.data)s.push(Ee`
                 <tr style="cursor: pointer;" role="button">
                     ${[...e.map(t=>Ee`
