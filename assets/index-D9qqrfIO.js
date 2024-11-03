@@ -2468,6 +2468,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             }
 
             :host {
+                z-index: 10;
                 position: absolute !important;
                 top: var(--ui-app-bar-height);
                 left: 0;
@@ -2491,7 +2492,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 @storage=${()=>console.debug("Storage event fired...")}
                 @change=${()=>{this.dispatchEvent(new Event("change"))}}
             ></ui-search>
-        `}value(){var s,e;return((e=(s=this.shadowRoot)==null?void 0:s.querySelector("ui-search"))==null?void 0:e.value)||""}};Or([ke({type:String,attribute:"title",reflect:!0})],xt.prototype,"title",2);Or([ke({type:String,attribute:"storage-key",reflect:!0})],xt.prototype,"storageKey",2);Or([ke({type:Boolean,attribute:"active",reflect:!0})],xt.prototype,"active",2);xt=Or([Ue("pg-search-bar")],xt);const Uc=xt;function Fc(s,e){for(;!s.matches(e);){if(!s.parentElement)return null;s=s.parentElement}return s}var jc=Object.defineProperty,Ic=Object.getOwnPropertyDescriptor,Ls=(s,e,t,i)=>{for(var r=i>1?void 0:i?Ic(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&jc(e,t,r),r};let Wt=class extends Le{constructor(){super(...arguments),this.rippleCleanUp=null}createRenderRoot(){return this}render(){return this.data===void 0?_e``:(this.ripple&&this.rippleCleanUp===null?(this.style.cursor="pointer",this.role="button",this.rippleCleanUp=qa.create(this)):!this.ripple&&this.rippleCleanUp!==null&&(this.style.cursor="default",this.role="none",this.rippleCleanUp(),this.rippleCleanUp=null),_e`
+        `}firstUpdated(s){this.classList.add("has-backdrop-blur")}value(){var s,e;return((e=(s=this.shadowRoot)==null?void 0:s.querySelector("ui-search"))==null?void 0:e.value)||""}};Or([ke({type:String,attribute:"title",reflect:!0})],xt.prototype,"title",2);Or([ke({type:String,attribute:"storage-key",reflect:!0})],xt.prototype,"storageKey",2);Or([ke({type:Boolean,attribute:"active",reflect:!0})],xt.prototype,"active",2);xt=Or([Ue("pg-search-bar")],xt);const Uc=xt;function Fc(s,e){for(;!s.matches(e);){if(!s.parentElement)return null;s=s.parentElement}return s}var jc=Object.defineProperty,Ic=Object.getOwnPropertyDescriptor,Ls=(s,e,t,i)=>{for(var r=i>1?void 0:i?Ic(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&jc(e,t,r),r};let Wt=class extends Le{constructor(){super(...arguments),this.rippleCleanUp=null}createRenderRoot(){return this}render(){return this.data===void 0?_e``:(this.ripple&&this.rippleCleanUp===null?(this.style.cursor="pointer",this.role="button",this.rippleCleanUp=qa.create(this)):!this.ripple&&this.rippleCleanUp!==null&&(this.style.cursor="default",this.role="none",this.rippleCleanUp(),this.rippleCleanUp=null),_e`
             <ui-text>${this.data.alert}</ui-text>
 
             <ui-text
