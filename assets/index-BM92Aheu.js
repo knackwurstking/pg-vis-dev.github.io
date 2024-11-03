@@ -111,7 +111,7 @@ var vo=Object.defineProperty;var bo=(s,e,t)=>e in s?vo(s,e,{enumerable:!0,config
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
-                        ${this.renderPressSelect()}
+                        ${this._renderPressSelect()}
                     </ui-flex-grid-item>
                 </ui-flex-grid>
 
@@ -133,7 +133,7 @@ var vo=Object.defineProperty;var bo=(s,e,t)=>e in s?vo(s,e,{enumerable:!0,config
                     OK
                 </ui-button>
             </ui-dialog>
-        `}renderPressSelect(){return Ft(this.press,ye`
+        `}_renderPressSelect(){return Ft(this.press,ye`
                 <ui-label primary="Presse">
                     <ui-select
                         @change=${s=>{const t=s.currentTarget.selected();t&&(this.press=parseInt(t.value,10))}}
@@ -2521,10 +2521,10 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 inert
             >
                 <ui-flex-grid gap="0.25rem">
-                    ${this.renderInputs()}
+                    ${this._renderInputs()}
                 </ui-flex-grid>
 
-                ${this.renderDeleteAction()}
+                ${this._renderDeleteAction()}
 
                 <ui-button
                     slot="actions"
@@ -2544,7 +2544,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                     OK
                 </ui-button>
             </ui-dialog>
-        `}renderInputs(){const s=[...(this.header||[]).map((e,t)=>Ft(this.entryData[t],ye`
+        `}_renderInputs(){const s=[...(this.header||[]).map((e,t)=>Ft(this.entryData[t],ye`
                         <ui-flex-grid-item>
                             <ui-input
                                 title="${e}"
@@ -2553,7 +2553,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                                 @change=${i=>{this.entryData[t]=i.currentTarget.value}}
                             ></ui-input>
                         </ui-flex-grid-item>
-                    `))];return ye`${s}`}renderDeleteAction(){return this.tableIndex<0?ye``:ye`
+                    `))];return ye`${s}`}_renderDeleteAction(){return this.tableIndex<0?ye``:ye`
             <ui-button
                 slot="actions"
                 variant="full"
@@ -2562,7 +2562,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             >
                 Löschen
             </ui-button>
-        `}show(){this.querySelector("ui-dialog").show()}close(){this.querySelector("ui-dialog").close()}};Rr([ke({type:Object,attribute:"header",reflect:!0})],Zt.prototype,"header",2);Rr([ke({type:Object,attribute:"entry-data",reflect:!0})],Zt.prototype,"entryData",2);Rr([ke({type:Number,attribute:"table-index",reflect:!0})],Zt.prototype,"tableIndex",2);Zt=Rr([Ge("pg-metal-sheet-entry-dialog")],Zt);var qc=Object.defineProperty,Hc=Object.getOwnPropertyDescriptor,Vc=(s,e,t,i)=>{for(var r=i>1?void 0:i?Hc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&qc(e,t,r),r};let ss=class extends Os{constructor(){super(...arguments),this.cleanup=new fs}render(){return this.setAppBarTitle(),ye`
+        `}show(){this.querySelector("ui-dialog").show()}close(){this.querySelector("ui-dialog").close()}};Rr([ke({type:Object,attribute:"header",reflect:!0})],Zt.prototype,"header",2);Rr([ke({type:Object,attribute:"entry-data",reflect:!0})],Zt.prototype,"entryData",2);Rr([ke({type:Number,attribute:"table-index",reflect:!0})],Zt.prototype,"tableIndex",2);Zt=Rr([Ge("pg-metal-sheet-entry-dialog")],Zt);var qc=Object.defineProperty,Hc=Object.getOwnPropertyDescriptor,Vc=(s,e,t,i)=>{for(var r=i>1?void 0:i?Hc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&qc(e,t,r),r};let ss=class extends Os{constructor(){super(...arguments),this.cleanup=new fs}render(){return this._setAppBarTitle(),ye`
             <div
                 class="no-scrollbar"
                 style="${Ar({width:"100%",overflowX:"auto"})}"
@@ -2570,11 +2570,11 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 <table>
                     <thead>
                         <tr>
-                            ${this.renderTableHeader()}
+                            ${this._renderTableHeader()}
                         </tr>
                     </thead>
                     <tbody>
-                        ${this.renderTableBody()}
+                        ${this._renderTableBody()}
                     </tbody>
                 </table>
             </div>
@@ -2593,17 +2593,17 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             </ui-flex-grid-row>
 
             <pg-metal-sheet-entry-dialog
-                @submit=${async s=>{this.data&&(s.currentTarget.tableIndex<0?this.data.data.table.data.push(s.currentTarget.entryData):this.data.data.table.data[s.currentTarget.tableIndex]=s.currentTarget.entryData,this.requestUpdate(),this.replaceInStore(this.data))}}
-                @delete=${async s=>{this.data&&(this.data.data.table.data.splice(s.currentTarget.tableIndex,1),this.requestUpdate(),this.replaceInStore(this.data))}}
+                @submit=${async s=>{this.data&&(s.currentTarget.tableIndex<0?this.data.data.table.data.push(s.currentTarget.entryData):this.data.data.table.data[s.currentTarget.tableIndex]=s.currentTarget.entryData,this.requestUpdate(),this._replaceInStore(this.data))}}
+                @delete=${async s=>{this.data&&(this.data.data.table.data.splice(s.currentTarget.tableIndex,1),this.requestUpdate(),this._replaceInStore(this.data))}}
             ></pg-metal-sheet-entry-dialog>
 
             <pg-metal-sheet-table-dialog
-                title="Liste Bearbeiten"
-                @submit=${s=>{if(!this.data)return;const e=s.currentTarget.format,t=s.currentTarget.toolID,i=s.currentTarget.press,r=_e.queryStore(),n=De("metalSheets");try{const o={...this.data,format:e,toolID:t,data:{...this.data.data,press:i}};n.replaceInStore(r,o,this.data),this.data=o}catch(o){setTimeout(()=>this.openTableDialog({format:e,toolID:t,press:i})),alert(o);return}}}
+                title="Bearbeiten"
+                @submit=${s=>{if(!this.data)return;const e=s.currentTarget.format,t=s.currentTarget.toolID,i=s.currentTarget.press,r=_e.queryStore(),n=De("metalSheets");try{const o={...this.data,format:e,toolID:t,data:{...this.data.data,press:i}};n.replaceInStore(r,o,this.data),this.data=o}catch(o){setTimeout(()=>this._openTableDialog({format:e,toolID:t,press:i})),alert(o);return}}}
             ></pg-metal-sheet-table-dialog>
-        `}renderTableHeader(){if(!this.data)return ye``;const s=[];for(const e of this.data.data.table.header)s.push(ye`
+        `}_renderTableHeader(){if(!this.data)return ye``;const s=[];for(const e of this.data.data.table.header)s.push(ye`
                 <th style="text-align: center; text-wrap: pretty;">${e}</th>
-            `);return ye`${[...s]}`}renderTableBody(){if(!this.data)return ye``;const s=[];for(let e=0;e<this.data.data.table.data.length;e++){const t=this.data.data.table.data[e];s.push(Ft(t,ye`
+            `);return ye`${[...s]}`}_renderTableBody(){if(!this.data)return ye``;const s=[];for(let e=0;e<this.data.data.table.data.length;e++){const t=this.data.data.table.data[e];s.push(Ft(t,ye`
                         <tr
                             style="cursor: pointer;"
                             role="button"
@@ -2616,7 +2616,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                                         </td>
                                     `)]}
                         </tr>
-                    `))}return ye`${[...s]}`}updated(s){const e=this.querySelector("tbody");Ma.createMobile(e,{onDragEnd:()=>{this.data&&(this.data.data.table.data=Array.from(e.children).map(t=>{const i=t.getAttribute("data-json");if(!i)throw new Error('missing attribute "data-json"');return JSON.parse(i)}),this.requestUpdate(),this.replaceInStore(this.data))}})}firstUpdated(s){this.classList.add("no-scrollbar"),this.style.overflow="hidden",this.style.overflowY="auto"}connectedCallback(){super.connectedCallback();const s=async()=>{this.data&&this.openTableDialog({format:this.data.format,toolID:this.data.toolID,press:this.data.data.press})},e=_e.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}setAppBarTitle(){_e.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?De("metalSheets").fileName(this.data).split(".").slice(0,-1).join("."):"Bleck Liste"}openTableDialog(s){const e=this.querySelector("pg-metal-sheet-table-dialog");e.format=s.format,e.toolID=s.toolID,e.press=s.press,e.show()}replaceInStore(s){De("metalSheets").replaceInStore(_e.queryStore(),s,s)}};ss=Vc([Ge("pg-page-content-metal-sheets")],ss);const Wc=ss;var Zc=Object.defineProperty,Kc=Object.getOwnPropertyDescriptor,xt=(s,e,t,i)=>{for(var r=i>1?void 0:i?Kc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Zc(e,t,r),r};let Ke=class extends Ss{createRenderRoot(){return this}render(){return ye`
+                    `))}return ye`${[...s]}`}updated(s){const e=this.querySelector("tbody");Ma.createMobile(e,{onDragEnd:()=>{this.data&&(this.data.data.table.data=Array.from(e.children).map(t=>{const i=t.getAttribute("data-json");if(!i)throw new Error('missing attribute "data-json"');return JSON.parse(i)}),this.requestUpdate(),this._replaceInStore(this.data))}})}firstUpdated(s){this.classList.add("no-scrollbar"),this.style.overflow="hidden",this.style.overflowY="auto"}connectedCallback(){super.connectedCallback();const s=async()=>{this.data&&this._openTableDialog({format:this.data.format,toolID:this.data.toolID,press:this.data.data.press})},e=_e.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}_setAppBarTitle(){_e.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?De("metalSheets").fileName(this.data).split(".").slice(0,-1).join("."):"Bleck Liste"}_openTableDialog(s){const e=this.querySelector("pg-metal-sheet-table-dialog");e.format=s.format,e.toolID=s.toolID,e.press=s.press,e.show()}_replaceInStore(s){De("metalSheets").replaceInStore(_e.queryStore(),s,s)}};ss=Vc([Ge("pg-page-content-metal-sheets")],ss);const Wc=ss;var Zc=Object.defineProperty,Kc=Object.getOwnPropertyDescriptor,xt=(s,e,t,i)=>{for(var r=i>1?void 0:i?Kc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Zc(e,t,r),r};let Ke=class extends Ss{createRenderRoot(){return this}render(){return ye`
             <ui-flex-grid-row>
                 <ui-flex-grid-item>
                     <ui-label
