@@ -999,7 +999,7 @@ var Ro=Object.defineProperty;var Do=(s,e,t)=>e in s?Ro(s,e,{enumerable:!0,config
 
                 background-color: hsla(
                     var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
+                    var(--ui-backdrop-alpha)
                 );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
@@ -1273,7 +1273,7 @@ var Ro=Object.defineProperty;var Do=(s,e,t)=>e in s?Ro(s,e,{enumerable:!0,config
             dialog::backdrop {
                 background-color: hsla(
                     var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
+                    var(--ui-backdrop-alpha)
                 );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
@@ -1542,7 +1542,7 @@ var Ro=Object.defineProperty;var Do=(s,e,t)=>e in s?Ro(s,e,{enumerable:!0,config
                 /* Backdrop Blur */
                 background-color: hsla(
                     var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
+                    var(--ui-backdrop-alpha)
                 );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
@@ -2113,7 +2113,7 @@ var Ro=Object.defineProperty;var Do=(s,e,t)=>e in s?Ro(s,e,{enumerable:!0,config
 
                 background-color: hsla(
                     var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
+                    var(--ui-backdrop-alpha)
                 );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
@@ -2456,7 +2456,14 @@ var Ro=Object.defineProperty;var Do=(s,e,t)=>e in s?Ro(s,e,{enumerable:!0,config
                     @click=${async e=>{if(!(e.target instanceof Element))return;const t=Is(e.target,"pg-vis-list-item");t!==null&&ce.queryStackLayout().setPage("product",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data)},!0)}}
                 ></div>
             </div>
-        `}updated(s){const e=this.querySelector("pg-search-bar"),t=this.querySelector("div.container");this.searchBar?(t.style.paddingTop=`calc(${e.clientHeight}px + var(--ui-spacing) * 2)`,this.filter(e.value())):(t.style.paddingTop="0",this.filter(""))}firstUpdated(s){setTimeout(()=>{if(this.data===void 0)return;const e=this.querySelector(".list");this.data.data.forEach(t=>{setTimeout(()=>{const i=new tu;i.style.cursor="pointer",i.role="button",i.data=t,e.appendChild(i)})})})}connectedCallback(){super.connectedCallback();const s=ce.queryAppBar(),e=async()=>this.searchBar=!this.searchBar,t=s.contentName("search").contentAt(0);t.addEventListener("click",e),this.cleanup.add(()=>t.removeEventListener("click",e))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}async filter(s){const e=this.querySelector(".list"),t=zi.generateRegExp(s);let i;for(const r of[...e.children])r.data!==void 0&&setTimeout(()=>{i=`${r.data.lotto} ${r.data.name} ${r.data.format} ${r.data.stamp} ${r.data.thickness}`,t.test(i)?r.style.display="block":r.style.display="none"})}};xo([fe({type:Boolean,attribute:"search-bar",reflect:!0})],Or.prototype,"searchBar",2);Or=xo([Se("pg-page-content-vis")],Or);const iu=Or;var ou=Object.defineProperty,nu=Object.getOwnPropertyDescriptor,au=(s,e,t,i)=>{for(var r=i>1?void 0:i?nu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&ou(e,t,r),r};let us=class extends tt{render(){return ce.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?Ee("visBookmarks").listKey(this.data):Ee("visBookmarks").title(),ne``}};us=au([Se("pg-page-content-vis-bookmarks")],us);const lu=us;var cu=Object.defineProperty,uu=Object.getOwnPropertyDescriptor,Bs=(s,e,t,i)=>{for(var r=i>1?void 0:i?uu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&cu(e,t,r),r};let Jt=class extends tt{constructor(){super(...arguments),this.modified=!1,this.deleteEntry=!1,this.cleanup=new Dt}render(){return this.data===void 0||this.listKey===void 0||this.entryIndex===void 0?re``:re`
+        `}updated(s){const e=this.querySelector("pg-search-bar"),t=this.querySelector("div.container");this.searchBar?(t.style.paddingTop=`calc(${e.clientHeight}px + var(--ui-spacing) * 2)`,this.filter(e.value())):(t.style.paddingTop="0",this.filter(""))}firstUpdated(s){setTimeout(()=>{if(this.data===void 0)return;const e=this.querySelector(".list");this.data.data.forEach(t=>{setTimeout(()=>{const i=new tu;i.style.cursor="pointer",i.role="button",i.data=t,e.appendChild(i)})})})}connectedCallback(){super.connectedCallback();const s=ce.queryAppBar(),e=async()=>this.searchBar=!this.searchBar,t=s.contentName("search").contentAt(0);t.addEventListener("click",e),this.cleanup.add(()=>t.removeEventListener("click",e))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}async filter(s){const e=this.querySelector(".list"),t=zi.generateRegExp(s);let i;for(const r of[...e.children])r.data!==void 0&&setTimeout(()=>{i=`${r.data.lotto} ${r.data.name} ${r.data.format} ${r.data.stamp} ${r.data.thickness}`,t.test(i)?r.style.display="block":r.style.display="none"})}};xo([fe({type:Boolean,attribute:"search-bar",reflect:!0})],Or.prototype,"searchBar",2);Or=xo([Se("pg-page-content-vis")],Or);const iu=Or;var ou=Object.defineProperty,nu=Object.getOwnPropertyDescriptor,au=(s,e,t,i)=>{for(var r=i>1?void 0:i?nu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&ou(e,t,r),r};let us=class extends tt{render(){return ce.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?Ee("visBookmarks").listKey(this.data):Ee("visBookmarks").title(),ne`
+            <div
+                class="container no-scrollbar"
+                style="width: 100%; height: 100%; overflow: auto;"
+            >
+                ${this.renderData()}
+            </div>
+        `}renderData(){return ne``}};us=au([Se("pg-page-content-vis-bookmarks")],us);const lu=us;var cu=Object.defineProperty,uu=Object.getOwnPropertyDescriptor,Bs=(s,e,t,i)=>{for(var r=i>1?void 0:i?uu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&cu(e,t,r),r};let Jt=class extends tt{constructor(){super(...arguments),this.modified=!1,this.deleteEntry=!1,this.cleanup=new Dt}render(){return this.data===void 0||this.listKey===void 0||this.entryIndex===void 0?re``:re`
             <div
                 class="container no-scrollbar"
                 style="width: 100%; height: 100%; overflow: auto;"
