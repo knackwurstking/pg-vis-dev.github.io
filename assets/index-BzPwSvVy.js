@@ -2536,9 +2536,7 @@ var Ro=Object.defineProperty;var Do=(s,e,t)=>e in s?Ro(s,e,{enumerable:!0,config
                 ${this.renderFilterTags()}
 
                 <ui-flex-grid-item>
-                    <ui-text name="value" mono="1">
-                        ${this.data.value}
-                    </ui-text>
+                    <ui-text name="value">${this.data.value}</ui-text>
                 </ui-flex-grid-item>
             </ui-flex-grid>
         `}renderFilterTags(){if(this.data===void 0||!this.showFilter)return re``;const s=[];return this.data.lotto!==null&&s.push(re`
