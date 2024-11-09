@@ -2620,7 +2620,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
                                     data="${JSON.stringify(t)}"
                                     entry-index=${i}
                                     show-filter
-                                ></pg-vis-data-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}connectedCallback(){super.connectedCallback();const s=()=>{if(this.data===void 0)return;const r=this.querySelector("pg-vis-data-dialog");r.invalidTitle=!1,r.title=this.data.title,r.show()},e=ae.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)});const t=Ee("visData"),i=ae.queryStore();this.cleanup.add(i.addListener("visData",r=>{for(const n of r)t.listKey(n)===t.listKey(this.data)&&(this.data=n)}))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};ps=ku([Se("pg-page-content-vis-data")],ps);const Tu=ps;var Su=Object.defineProperty,xu=Object.getOwnPropertyDescriptor,Lt=(s,e,t,i)=>{for(var r=i>1?void 0:i?xu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Su(e,t,r),r};let Ye=class extends Pe{createRenderRoot(){return this}render(){return re`
+                                ></pg-vis-data-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}connectedCallback(){super.connectedCallback();const s=()=>{if(this.data===void 0)return;const r=this.querySelector("pg-vis-data-dialog");r.invalidTitle=!1,r.title=this.data.title,r.show()},e=ae.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)});const t=Ee("visData"),i=ae.queryStore();this.cleanup.add(i.addListener("visData",r=>{for(const n of r)t.listKey(n)===t.listKey(this.data)&&(this.data=n)}))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};ps=ku([Se("pg-page-content-vis-data")],ps);const Tu=ps;var Su=Object.defineProperty,xu=Object.getOwnPropertyDescriptor,Lt=(s,e,t,i)=>{for(var r=i>1?void 0:i?xu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Su(e,t,r),r};let Ye=class extends Pe{createRenderRoot(){return this}render(){let s=!1;return re`
             <ui-flex-grid-row>
                 <ui-flex-grid-item>
                     <ui-label
@@ -2628,7 +2628,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
                         style="cursor: pointer;"
                         primary="${this.primary||""}"
                         secondary="${this.secondary||""}"
-                        @click=${async()=>{await this.setStackLayoutPage(),ae.queryDrawer().open=!1}}
+                        @click=${async()=>{if(!s){s=!0;try{await this.setStackLayoutPage(),ae.queryDrawer().open=!1}finally{s=!1}}}}
                     ></ui-label>
                 </ui-flex-grid-item>
 
@@ -2641,7 +2641,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
                               style="height: 100%"
                               color="destructive"
                               ghost
-                              @click=${async()=>{await this.deleteStoreData()}}
+                              @click=${async()=>{if(!s){s=!0;try{await this.deleteStoreData()}finally{s=!1}}}}
                           >
                               ${He.smoothieLineIcons.trash}
                           </ui-icon-button>
