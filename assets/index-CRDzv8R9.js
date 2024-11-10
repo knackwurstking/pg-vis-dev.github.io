@@ -24,7 +24,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const rn={attribute:!0,type:String,converter:gr,reflect:!1,hasChanged:vs},sn=(s=rn,e,t)=>{const{kind:i,metadata:r}=t;let n=globalThis.litPropertyMetadata.get(r);if(n===void 0&&globalThis.litPropertyMetadata.set(r,n=new Map),n.set(t.name,s),i==="accessor"){const{name:o}=t;return{set(a){const c=e.get.call(this);e.set.call(this,a),this.requestUpdate(o,c,s)},init(a){return a!==void 0&&this.P(o,void 0,s),a}}}if(i==="setter"){const{name:o}=t;return function(a){const c=this[o];e.call(this,a),this.requestUpdate(o,c,s)}}throw Error("Unsupported decorator location: "+i)};function fe(s){return(e,t)=>typeof t=="object"?sn(s,e,t):((i,r,n)=>{const o=r.hasOwnProperty(n);return r.constructor.createProperty(n,o?{...i,wrapped:!0}:i),o?Object.getOwnPropertyDescriptor(r,n):void 0})(s,e,t)}var on=Object.defineProperty,nn=Object.getOwnPropertyDescriptor,Dr=(s,e,t,i)=>{for(var r=i>1?void 0:i?nn(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&on(e,t,r),r};let Et=class extends Ce{constructor(){super(...arguments),this.title="",this.storageKey=""}static generateRegExp(s){const e=s.split(" ").filter(t=>t!=="");return new RegExp("(?=.*"+e.join(")(?=.*")+")","i")}static get styles(){return Uo`
+ */const rn={attribute:!0,type:String,converter:gr,reflect:!1,hasChanged:vs},sn=(s=rn,e,t)=>{const{kind:i,metadata:r}=t;let n=globalThis.litPropertyMetadata.get(r);if(n===void 0&&globalThis.litPropertyMetadata.set(r,n=new Map),n.set(t.name,s),i==="accessor"){const{name:o}=t;return{set(a){const c=e.get.call(this);e.set.call(this,a),this.requestUpdate(o,c,s)},init(a){return a!==void 0&&this.P(o,void 0,s),a}}}if(i==="setter"){const{name:o}=t;return function(a){const c=this[o];e.call(this,a),this.requestUpdate(o,c,s)}}throw Error("Unsupported decorator location: "+i)};function fe(s){return(e,t)=>typeof t=="object"?sn(s,e,t):((i,r,n)=>{const o=r.hasOwnProperty(n);return r.constructor.createProperty(n,o?{...i,wrapped:!0}:i),o?Object.getOwnPropertyDescriptor(r,n):void 0})(s,e,t)}var on=Object.defineProperty,nn=Object.getOwnPropertyDescriptor,Dr=(s,e,t,i)=>{for(var r=i>1?void 0:i?nn(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&on(e,t,r),r};let Et=class extends Ce{constructor(){super(...arguments),this.title="",this.storageKey=""}static generateRegExp(s){const e=s.split(" ").filter(t=>t!=="");return new RegExp("(?=.*"+e.map(t=>t.replace(/[()]/g,"\\$&")).join(")(?=.*")+")","i")}static get styles(){return Uo`
             * {
                 box-sizing: border-box;
             }
@@ -2291,10 +2291,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
-                        <p
-                            class="description"
-                            style="padding: var(--ui-spacing);"
-                        ></p>
+                        <p class="description" style="padding: var(--ui-spacing);"></p>
                     </ui-flex-grid-item>
                 </ui-flex-grid>
             </div>
@@ -2309,7 +2306,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
             </ui-text>
         `}};So([fe({type:Object,attribute:"data",reflect:!1})],ls.prototype,"data",2);ls=So([Se("pg-alert-list-item")],ls);function jr(s,e){for(;!s.matches(e);){if(!s.parentElement)return null;s=s.parentElement}return s}var qc=Object.defineProperty,Hc=Object.getOwnPropertyDescriptor,xo=(s,e,t,i)=>{for(var r=i>1?void 0:i?Hc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&qc(e,t,r),r};let Pr=class extends et{constructor(){super(...arguments),this.cleanup=new Rt,this.content=[]}querySearchBar(){return this.querySelector("pg-search-bar")}render(){var s;return ae.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?Ee("alertLists").listKey(this.data):Ee("alertLists").title(),re`
             <pg-search-bar
-                title="Alarmsuche (RegEx Mode)"
+                title="Alarmsuche"
                 storage-key="${(s=this.data)==null?void 0:s.title}"
                 ?active=${!!this.searchBar}
                 @change=${async e=>{await this.filter(e.currentTarget.value())}}
@@ -2447,7 +2444,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
             </ui-flex-grid>
         `}};Po([fe({type:Object,attribute:"data",reflect:!0})],Cr.prototype,"data",2);Cr=Po([Se("pg-vis-list-item")],Cr);const cu=Cr;var uu=Object.defineProperty,du=Object.getOwnPropertyDescriptor,Co=(s,e,t,i)=>{for(var r=i>1?void 0:i?du(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&uu(e,t,r),r};let Ar=class extends et{constructor(){super(...arguments),this.cleanup=new Rt}render(){var s;return ae.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?Ee("vis").listKey(this.data):Ee("vis").title(),re`
             <pg-search-bar
-                title="Productsuche (RegEx Mode)"
+                title="Produktsuche"
                 storage-key="${(s=this.data)==null?void 0:s.title}"
                 ?active=${!!this.searchBar}
                 @change=${async e=>{await this.filter(e.currentTarget.value())}}
@@ -2473,10 +2470,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
                                     style="cursor: pointer;"
                                     data="${JSON.stringify(i)}"
                                 ></pg-vis-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}productFromStore(s,e){const t=`${e.lotto} ${e.name}`;for(const i of this.sortVisLists(s.getData("vis")||[])){console.debug(`Search list "${i.title}" for the product key "${t}"`);for(const r of i.data)if(`${r.lotto} ${r.name}`===t)return console.debug(`Found "${t}" in "${i.title}"`),e}return console.warn(`Product key "${t}" not found`),e}sortVisLists(s){return s.sort((e,t)=>e.date-t.date).reverse()}};ds=fu([Se("pg-page-content-vis-bookmarks")],ds);const mu=ds;var vu=Object.defineProperty,yu=Object.getOwnPropertyDescriptor,Bs=(s,e,t,i)=>{for(var r=i>1?void 0:i?yu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&vu(e,t,r),r};let Jt=class extends et{constructor(){super(...arguments),this.modified=!1,this.deleteEntry=!1,this.cleanup=new Rt}render(){return this.data===void 0||this.listKey===void 0||this.entryIndex===void 0?re``:re`
-            <div
-                class="container no-scrollbar"
-                style="width: 100%; height: 100%; overflow: auto;"
-            >
+            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
                         <ui-input
@@ -2544,9 +2538,7 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
             <ui-flex-grid gap="0.25rem">
                 ${this.data.key!==null?re`
                           <ui-flex-grid-item>
-                              <ui-primary wght="650">
-                                  ${this.data.key}
-                              </ui-primary>
+                              <ui-primary wght="650"> ${this.data.key} </ui-primary>
                           </ui-flex-grid-item>
                       `:""}
                 ${this.renderFilterTags()}
@@ -2951,14 +2943,8 @@ var Lo=Object.defineProperty;var Go=(s,e,t)=>e in s?Lo(s,e,{enumerable:!0,config
                 </ui-button>
             </ui-dialog>
         `}async importFromFile(){if(!this.storeKey)return;const s=document.createElement("input");s.type="file",s.multiple=!0,s.onchange=async()=>{if(s.files!==null)for(const e of s.files){const t=new FileReader;t.onload=async()=>{if(typeof t.result!="string"||this.storeKey===void 0)return;const i=Ee(this.storeKey);let r;try{r=i.validate(t.result)}catch(n){alert(n);return}if(r===null){alert(`Ungültige Daten für "${i.title()}"!`);return}try{i.addToStore(ae.queryStore(),[r],!0)}catch(n){alert(n);return}},t.onerror=()=>{alert(`Lesen der Datei "${e.name}" ist fehlgeschlagen!`)},t.readAsText(e)}},s.click()}show(){this.querySelector("ui-dialog").show()}close(){this.querySelector("ui-dialog").close()}};Oo([fe({type:String,attribute:"store-key",reflect:!0})],hs.prototype,"storeKey",2);hs=Oo([Se("pg-import-dialog")],hs);var Fu=Object.defineProperty,Uu=Object.getOwnPropertyDescriptor,Br=(s,e,t,i)=>{for(var r=i>1?void 0:i?Uu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Fu(e,t,r),r};let Xt=class extends Ce{constructor(){super(...arguments),this.entryData=[],this.tableIndex=-1}createRenderRoot(){return this}render(){return this.header!==void 0&&this.header.length>this.entryData.length&&(this.entryData=this.header.map((s,e)=>this.entryData[e]||"")),re`
-            <ui-dialog
-                title="${this.tableIndex<0?"Neuer Eintrag":"Bearbeiten"}"
-                modal
-                inert
-            >
-                <ui-flex-grid gap="0.25rem">
-                    ${this.renderInputs()}
-                </ui-flex-grid>
+            <ui-dialog title="${this.tableIndex<0?"Neuer Eintrag":"Bearbeiten"}" modal inert>
+                <ui-flex-grid gap="0.25rem"> ${this.renderInputs()} </ui-flex-grid>
 
                 ${this.renderDeleteAction()}
 
@@ -3194,10 +3180,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                     </ui-button>
                 </ui-flex-grid-item>
 
-                <ui-flex-grid-item
-                    class="flex align-center justify-center"
-                    flex="0"
-                >
+                <ui-flex-grid-item class="flex align-center justify-center" flex="0">
                     <ui-icon-button
                         style="width: 2.5rem; height: 2.5rem;"
                         ghost
