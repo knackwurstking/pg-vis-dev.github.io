@@ -2279,33 +2279,7 @@ var Uo=Object.defineProperty;var jo=(s,e,t)=>e in s?Uo(s,e,{enumerable:!0,config
             onRateLimit: (retryAfter, options) => {/* ... */}
           }
         })
-    `);const h={},m=new i.Events(h);return h.on("secondary-limit",c.onSecondaryRateLimit),h.on("rate-limit",c.onRateLimit),h.on("error",d=>s.log.warn("Error in throttling-plugin limit handler",d)),c.retryLimiter.on("failed",async function(d,b){const[p,w,f]=b.args,{pathname:g}=new URL(f.url,"http://github.test");if(!(g.startsWith("/graphql")&&d.status!==401||d.status===403||d.status===429))return;const k=~~w.retryCount;w.retryCount=k,f.request.retryCount=k;const{wantRetry:S,retryAfter:A=0}=await async function(){var C;if(/\bsecondary rate\b/i.test(d.message)){const B=Number(d.response.headers["retry-after"])||p.fallbackSecondaryRateRetryAfter;return{wantRetry:await m.trigger("secondary-limit",B,f,s,k),retryAfter:B}}if(d.response.headers!=null&&d.response.headers["x-ratelimit-remaining"]==="0"||(((C=d.response.data)==null?void 0:C.errors)??[]).some(B=>B.type==="RATE_LIMITED")){const B=new Date(~~d.response.headers["x-ratelimit-reset"]*1e3).getTime(),F=Math.max(Math.ceil((B-Date.now())/1e3)+1,0);return{wantRetry:await m.trigger("rate-limit",F,f,s,k),retryAfter:F}}return{}}();if(S)return w.retryCount++,A*p.retryAfterBaseValue}),s.hook.wrap("request",Sc.bind(null,c)),{}}Ms.VERSION=Tc;Ms.triggersNotification=Eo;var Oc="0.0.0-development",ko=tc.plugin(yo,po,hc,wo,Ms).defaults({userAgent:`octokit.js/${Oc}`,throttle:{onRateLimit:$c,onSecondaryRateLimit:Rc}});function $c(s,e,t){if(t.log.warn(`Request quota exhausted for request ${e.method} ${e.url}`),e.request.retryCount===0)return t.log.info(`Retrying after ${s} seconds!`),!0}function Rc(s,e,t){if(t.log.warn(`SecondaryRateLimit detected for request ${e.method} ${e.url}`),e.request.retryCount===0)return t.log.info(`Retrying after ${s} seconds!`),!0}const To="v1.1.0.dev",Dc=9;var Lc=Object.defineProperty,Gc=Object.getOwnPropertyDescriptor,So=(s,e,t,i)=>{for(var r=i>1?void 0:i?Gc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Lc(e,t,r),r};let Pr=class extends Pe{constructor(){super(...arguments),this.name="",this.slot=""}createRenderRoot(){return this.style.width="100%",this.style.height="100%",this.style.display="block",this.style.paddingTop="var(--ui-app-bar-height)",this}};So([fe({type:Object,attribute:"data",reflect:!1})],Pr.prototype,"data",2);Pr=So([Se("pg-page-content")],Pr);const tt=Pr;var Fc=Object.defineProperty,Uc=Object.getOwnPropertyDescriptor,jc=(s,e,t,i)=>{for(var r=i>1?void 0:i?Uc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Fc(e,t,r),r};let ls=class extends tt{render(){return re`
-            <div
-                class="container no-scrollbar"
-                style="${Gt({width:"100%",height:"100%",overflow:"auto"})}"
-            >
-                <ui-flex-grid gap="0.25rem">
-                    <ui-flex-grid-item>
-                        ${this.data!==void 0?re`<pg-alert-list-item
-                                  data=${JSON.stringify(this.data)}
-                              ></pg-alert-list-item>`:""}
-                    </ui-flex-grid-item>
-
-                    <ui-flex-grid-item>
-                        <p class="description" style="padding: var(--ui-spacing);"></p>
-                    </ui-flex-grid-item>
-                </ui-flex-grid>
-            </div>
-        `}updated(s){if(this.data!==void 0){const e=this.querySelector(".description");e.innerHTML=this.data.desc.join("<br/>")}}firstUpdated(s){this.style.overflow="auto"}};ls=jc([Se("pg-page-content-alert")],ls);const Ic=ls;var Bc=Object.defineProperty,zc=Object.getOwnPropertyDescriptor,xo=(s,e,t,i)=>{for(var r=i>1?void 0:i?zc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Bc(e,t,r),r};let cs=class extends Pe{createRenderRoot(){return this.classList.add("flex"),this.classList.add("row"),this.classList.add("nowrap"),this.classList.add("align-center"),this.classList.add("justify-between"),this.style.padding="var(--ui-spacing)",this.style.overflow="hidden",this.style.position="relative",this.style.borderRadius="0",this.style.borderBottom="1px solid hsl(var(--ui-hsl-borderColor)",this}render(){return this.data===void 0?re``:re`
-            <ui-text>${this.data.alert}</ui-text>
-
-            <ui-text
-                style="color: hsl(var(--ui-hsl-primary)); text-wrap: nowrap; margin-left: var(--ui-spacing);"
-                wght="750"
-            >
-                ${this.data.from===this.data.to?this.data.from:`${this.data.from}..${this.data.to}`}
-            </ui-text>
-        `}};xo([fe({type:Object,attribute:"data",reflect:!1})],cs.prototype,"data",2);cs=xo([Se("pg-alert-list-item")],cs);var Mc=Object.defineProperty,qc=Object.getOwnPropertyDescriptor,Co=(s,e,t,i)=>{for(var r=i>1?void 0:i?qc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Mc(e,t,r),r};let Ar=class extends tt{constructor(){super(...arguments),this.cleanup=new ht,this.content=[]}querySearchBar(){return this.querySelector("pg-search-bar")}render(){var s;return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("alertLists").listKey(this.data):we("alertLists").title(),re`
+    `);const h={},m=new i.Events(h);return h.on("secondary-limit",c.onSecondaryRateLimit),h.on("rate-limit",c.onRateLimit),h.on("error",d=>s.log.warn("Error in throttling-plugin limit handler",d)),c.retryLimiter.on("failed",async function(d,b){const[p,w,f]=b.args,{pathname:g}=new URL(f.url,"http://github.test");if(!(g.startsWith("/graphql")&&d.status!==401||d.status===403||d.status===429))return;const k=~~w.retryCount;w.retryCount=k,f.request.retryCount=k;const{wantRetry:S,retryAfter:A=0}=await async function(){var C;if(/\bsecondary rate\b/i.test(d.message)){const B=Number(d.response.headers["retry-after"])||p.fallbackSecondaryRateRetryAfter;return{wantRetry:await m.trigger("secondary-limit",B,f,s,k),retryAfter:B}}if(d.response.headers!=null&&d.response.headers["x-ratelimit-remaining"]==="0"||(((C=d.response.data)==null?void 0:C.errors)??[]).some(B=>B.type==="RATE_LIMITED")){const B=new Date(~~d.response.headers["x-ratelimit-reset"]*1e3).getTime(),F=Math.max(Math.ceil((B-Date.now())/1e3)+1,0);return{wantRetry:await m.trigger("rate-limit",F,f,s,k),retryAfter:F}}return{}}();if(S)return w.retryCount++,A*p.retryAfterBaseValue}),s.hook.wrap("request",Sc.bind(null,c)),{}}Ms.VERSION=Tc;Ms.triggersNotification=Eo;var Oc="0.0.0-development",ko=tc.plugin(yo,po,hc,wo,Ms).defaults({userAgent:`octokit.js/${Oc}`,throttle:{onRateLimit:$c,onSecondaryRateLimit:Rc}});function $c(s,e,t){if(t.log.warn(`Request quota exhausted for request ${e.method} ${e.url}`),e.request.retryCount===0)return t.log.info(`Retrying after ${s} seconds!`),!0}function Rc(s,e,t){if(t.log.warn(`SecondaryRateLimit detected for request ${e.method} ${e.url}`),e.request.retryCount===0)return t.log.info(`Retrying after ${s} seconds!`),!0}const To="v1.1.0.dev",Dc=9;var Lc=Object.defineProperty,Gc=Object.getOwnPropertyDescriptor,So=(s,e,t,i)=>{for(var r=i>1?void 0:i?Gc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Lc(e,t,r),r};let Pr=class extends Pe{constructor(){super(...arguments),this.name="",this.slot=""}createRenderRoot(){return this.style.width="100%",this.style.height="100%",this.style.display="block",this.style.paddingTop="var(--ui-app-bar-height)",this}};So([fe({type:Object,attribute:"data",reflect:!1})],Pr.prototype,"data",2);Pr=So([Se("pg-page-content")],Pr);const tt=Pr;var Fc=Object.defineProperty,Uc=Object.getOwnPropertyDescriptor,xo=(s,e,t,i)=>{for(var r=i>1?void 0:i?Uc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Fc(e,t,r),r};let Ar=class extends tt{constructor(){super(...arguments),this.cleanup=new ht,this.content=[]}querySearchBar(){return this.querySelector("pg-search-bar")}render(){var s;return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("alertLists").listKey(this.data):we("alertLists").title(),re`
             <pg-search-bar
                 title="Alarmsuche"
                 storage-key="${(s=this.data)==null?void 0:s.title}"
@@ -2328,7 +2302,7 @@ var Uo=Object.defineProperty;var jo=(s,e,t)=>e in s?Uo(s,e,{enumerable:!0,config
                                     role="button"
                                     style="cursor: pointer;"
                                     data=${JSON.stringify(r)}
-                                ></pg-alert-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}connectedCallback(){super.connectedCallback();const s=ne.queryAppBar(),e=async()=>this.searchBar=!this.searchBar,t=s.contentName("search").contentAt(0);t.addEventListener("click",e),this.cleanup.add(()=>t.removeEventListener("click",e))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}async filter(s){const e=this.querySelector(".list"),t=Ni.generateRegExp(s);let i,r,n,o;for(const a of[...e.children])a.data!==void 0&&setTimeout(()=>{n=Math.min(a.data.from,a.data.to),o=Math.max(a.data.from,a.data.to),i=[];for(let c=n;c<o;c++)i.push(c.toString());r=`${i.join(",")} ${a.data.alert}`,t.test(r)?a.style.display="flex":a.style.display="none"})}};Co([fe({type:Boolean,attribute:"search-bar",reflect:!0})],Ar.prototype,"searchBar",2);Ar=Co([Se("pg-page-content-alert-lists")],Ar);const Nc=Ar;var Hc=Object.defineProperty,Vc=Object.getOwnPropertyDescriptor,Wc=(s,e,t,i)=>{for(var r=i>1?void 0:i?Vc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Hc(e,t,r),r};let us=class extends tt{constructor(){super(...arguments),this.cleanup=new ht}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("metalSheets").listKey(this.data):we("metalSheets").title(),re`
+                                ></pg-alert-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}connectedCallback(){super.connectedCallback();const s=ne.queryAppBar(),e=async()=>this.searchBar=!this.searchBar,t=s.contentName("search").contentAt(0);t.addEventListener("click",e),this.cleanup.add(()=>t.removeEventListener("click",e))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}async filter(s){const e=this.querySelector(".list"),t=Ni.generateRegExp(s);let i,r,n,o;for(const a of[...e.children])a.data!==void 0&&setTimeout(()=>{n=Math.min(a.data.from,a.data.to),o=Math.max(a.data.from,a.data.to),i=[];for(let c=n;c<o;c++)i.push(c.toString());r=`${i.join(",")} ${a.data.alert}`,t.test(r)?a.style.display="flex":a.style.display="none"})}};xo([fe({type:Boolean,attribute:"search-bar",reflect:!0})],Ar.prototype,"searchBar",2);Ar=xo([Se("pg-page-content-alert-lists")],Ar);const jc=Ar;var Ic=Object.defineProperty,Bc=Object.getOwnPropertyDescriptor,zc=(s,e,t,i)=>{for(var r=i>1?void 0:i?Bc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Ic(e,t,r),r};let ls=class extends tt{constructor(){super(...arguments),this.cleanup=new ht}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("metalSheets").listKey(this.data):we("metalSheets").title(),re`
             <div
                 class="no-scrollbar"
                 style="${Gt({width:"100%",overflowX:"auto"})}"
@@ -2376,12 +2350,199 @@ var Uo=Object.defineProperty;var jo=(s,e,t)=>e in s?Uo(s,e,{enumerable:!0,config
                         >
                             ${[...t.map(i=>re` <td style="text-align: center;">${i}</td> `)]}
                         </tr>
-                    `))}return re`${[...s]}`}updated(s){const e=this.querySelector("tbody");Un.createMobile(e,{onDragEnd:()=>{this.data&&(this.data.data.table.data=Array.from(e.children).map(t=>{const i=t.getAttribute("data-json");if(!i)throw new Error('missing attribute "data-json"');return JSON.parse(i)}),this.requestUpdate(),this.replaceInStore(this.data))}})}firstUpdated(s){this.classList.add("no-scrollbar"),this.style.overflow="hidden",this.style.overflowY="auto"}connectedCallback(){super.connectedCallback();const s=async()=>{this.data&&this.openTableDialog({format:this.data.format,toolID:this.data.toolID,press:this.data.data.press})},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}openTableDialog(s){const e=this.querySelector("pg-metal-sheet-table-dialog");e.format=s.format,e.toolID=s.toolID,e.press=s.press,e.show()}replaceInStore(s){we("metalSheets").replaceInStore(ne.queryStore(),s,s)}};us=Wc([Se("pg-page-content-metal-sheets")],us);const Kc=us;var Zc=Object.defineProperty,Jc=Object.getOwnPropertyDescriptor,Po=(s,e,t,i)=>{for(var r=i>1?void 0:i?Jc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Zc(e,t,r),r};let ds=class extends Pe{createRenderRoot(){return this}render(){return re`
+                    `))}return re`${[...s]}`}updated(s){const e=this.querySelector("tbody");Un.createMobile(e,{onDragEnd:()=>{this.data&&(this.data.data.table.data=Array.from(e.children).map(t=>{const i=t.getAttribute("data-json");if(!i)throw new Error('missing attribute "data-json"');return JSON.parse(i)}),this.requestUpdate(),this.replaceInStore(this.data))}})}firstUpdated(s){this.classList.add("no-scrollbar"),this.style.overflow="hidden",this.style.overflowY="auto"}connectedCallback(){super.connectedCallback();const s=async()=>{this.data&&this.openTableDialog({format:this.data.format,toolID:this.data.toolID,press:this.data.data.press})},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}openTableDialog(s){const e=this.querySelector("pg-metal-sheet-table-dialog");e.format=s.format,e.toolID=s.toolID,e.press=s.press,e.show()}replaceInStore(s){we("metalSheets").replaceInStore(ne.queryStore(),s,s)}};ls=zc([Se("pg-page-content-metal-sheets")],ls);const Mc=ls;var qc=Object.defineProperty,Nc=Object.getOwnPropertyDescriptor,Co=(s,e,t,i)=>{for(var r=i>1?void 0:i?Nc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&qc(e,t,r),r};let cs=class extends Pe{createRenderRoot(){return this.classList.add("flex"),this.classList.add("row"),this.classList.add("nowrap"),this.classList.add("align-center"),this.classList.add("justify-between"),this.style.padding="var(--ui-spacing)",this.style.overflow="hidden",this.style.position="relative",this.style.borderRadius="0",this.style.borderBottom="1px solid hsl(var(--ui-hsl-borderColor)",this}render(){return this.data===void 0?re``:re`
+            <ui-text>${this.data.alert}</ui-text>
+
+            <ui-text
+                style="color: hsl(var(--ui-hsl-primary)); text-wrap: nowrap; margin-left: var(--ui-spacing);"
+                wght="750"
+            >
+                ${this.data.from===this.data.to?this.data.from:`${this.data.from}..${this.data.to}`}
+            </ui-text>
+        `}};Co([fe({type:Object,attribute:"data",reflect:!1})],cs.prototype,"data",2);cs=Co([Se("pg-alert-list-item")],cs);var Hc=Object.defineProperty,Vc=Object.getOwnPropertyDescriptor,Br=(s,e,t,i)=>{for(var r=i>1?void 0:i?Vc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Hc(e,t,r),r};let Dt=class extends Pe{createRenderRoot(){return this.style.display="block",this.style.padding="var(--ui-spacing)",this.style.overflow="hidden",this.style.position="relative",this.style.borderRadius="0",this.style.borderBottom="1px solid hsl(var(--ui-hsl-borderColor)",this}render(){return this.data===void 0?re``:re`
+            <ui-flex-grid gap="0.25rem">
+                ${this.data.key!==null?re`
+                          <ui-flex-grid-item>
+                              <ui-primary wght="650"> ${this.data.key} </ui-primary>
+                          </ui-flex-grid-item>
+                      `:""}
+                ${this.renderFilterTags()}
+
+                <ui-flex-grid-item>
+                    <ui-text name="value">${this.data.value}</ui-text>
+                </ui-flex-grid-item>
+            </ui-flex-grid>
+        `}renderFilterTags(){if(this.data===void 0||!this.showFilter)return re``;const s=[];return this.data.lotto!==null&&s.push(re`
+                <ui-flex-grid-item flex="0">
+                    <code>${this.data.lotto}</code>
+                </ui-flex-grid-item>
+            `),this.data.format!==null&&s.push(re`
+                <ui-flex-grid-item flex="0">
+                    <code>${this.data.format}</code>
+                </ui-flex-grid-item>
+            `),this.data.stamp!==null&&s.push(re`
+                <ui-flex-grid-item flex="0">
+                    <code>${this.data.stamp}</code>
+                </ui-flex-grid-item>
+            `),this.data.thickness!==null&&s.push(re`
+                <ui-flex-grid-item flex="0">
+                    <code>${this.data.thickness}</code>
+                </ui-flex-grid-item>
+            `),re`
+            <ui-flex-grid gap="0">
+                ${s.length>0?re`<ui-secondary>Filter</ui-secondary>`:""}
+                <ui-flex-grid-row gap="0.25rem"> ${s} </ui-flex-grid-row>
+            </ui-flex-grid>
+
+            ${s.length>0?re`<br />`:""}
+        `}updated(s){var e;this.querySelector('ui-text[name="value"]').innerHTML=(((e=this.data)==null?void 0:e.value)||"").replaceAll(`
+`,"<br/>").replaceAll(" ","&nbsp;")}};Br([fe({type:Object,attribute:"data",reflect:!0})],Dt.prototype,"data",2);Br([fe({type:Number,attribute:"entry-index",reflect:!0})],Dt.prototype,"entryIndex",2);Br([fe({type:Boolean,attribute:"show-filter",reflect:!0})],Dt.prototype,"showFilter",2);Dt=Br([Se("pg-vis-data-list-item")],Dt);const Wc=Dt;var Kc=Object.defineProperty,Zc=Object.getOwnPropertyDescriptor,Po=(s,e,t,i)=>{for(var r=i>1?void 0:i?Zc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Kc(e,t,r),r};let Or=class extends Pe{createRenderRoot(){return this.style.display="block",this.style.padding="var(--ui-spacing)",this.style.overflow="hidden",this.style.position="relative",this.style.borderRadius="0",this.style.borderBottom="1px solid hsl(var(--ui-hsl-borderColor)",this}render(){return this.data===void 0?re``:re`
+            <ui-flex-grid gap="0.25rem">
+                <ui-flex-grid-row gap="0.25rem">
+                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
+                        <ui-text
+                            style="color: hsl(var(--ui-hsl-primary));"
+                            wght="750"
+                        >
+                            ${this.data.lotto}
+                        </ui-text>
+                    </ui-flex-grid-item>
+
+                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
+                        <ui-text>${this.data.name}</ui-text>
+                    </ui-flex-grid-item>
+                </ui-flex-grid-row>
+
+                <ui-flex-grid-row gap="0.25rem">
+                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
+                        <ui-text>${this.data.format}</ui-text>
+                    </ui-flex-grid-item>
+
+                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
+                        <ui-text>${this.data.stamp}</ui-text>
+                    </ui-flex-grid-item align="center">
+
+                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
+                        <ui-text>${this.data.thickness}</ui-text>
+                    </ui-flex-grid-item>
+                </ui-flex-grid-row>
+            </ui-flex-grid>
+        `}};Po([fe({type:Object,attribute:"data",reflect:!0})],Or.prototype,"data",2);Or=Po([Se("pg-vis-list-item")],Or);const Jc=Or;var Yc=Object.defineProperty,Xc=Object.getOwnPropertyDescriptor,Ao=(s,e,t,i)=>{for(var r=i>1?void 0:i?Xc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Yc(e,t,r),r};let $r=class extends tt{constructor(){super(...arguments),this.cleanup=new ht}render(){var s;return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("vis").listKey(this.data):we("vis").title(),re`
+            <pg-search-bar
+                title="Produktsuche"
+                storage-key="${(s=this.data)==null?void 0:s.title}"
+                ?active=${!!this.searchBar}
+                @change=${async e=>{await this.filter(e.currentTarget.value())}}
+            ></pg-search-bar>
+
+            <div
+                class="container no-scrollbar"
+                style="${Gt({width:"100%",height:"100%",overflow:"auto"})}"
+            >
+                <div
+                    class="list"
+                    @click=${async e=>{if(!(e.target instanceof Element))return;const t=ur(e.target,"pg-vis-list-item");t!==null&&ne.queryStackLayout().setPage("product",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data)},!0)}}
+                >
+                    ${Ce}
+                </div>
+            </div>
+        `}updated(s){const e=this.querySelector("pg-search-bar"),t=this.querySelector("div.container");this.searchBar?(t.style.paddingTop=`calc(${e.clientHeight}px + var(--ui-spacing) * 2)`,this.filter(e.value())):(t.style.paddingTop="0",this.filter("")),s.has("data")&&setTimeout(()=>this.updateContent())}updateContent(){var e;const s=this.querySelector(".list");if(this.data!==void 0)for(const t of((e=this.data)==null?void 0:e.data)||[])setTimeout(()=>{const i=new Jc;i.role="button",i.style.cursor="pointer",i.data=t,s.appendChild(i)})}connectedCallback(){super.connectedCallback();const s=ne.queryAppBar(),e=async()=>this.searchBar=!this.searchBar,t=s.contentName("search").contentAt(0);t.addEventListener("click",e),this.cleanup.add(()=>t.removeEventListener("click",e))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}async filter(s){const e=this.querySelector(".list"),t=Ni.generateRegExp(s);let i;for(const r of[...e.children])r.data!==void 0&&setTimeout(()=>{i=`${r.data.lotto} ${r.data.name} ${r.data.format} ${r.data.stamp} ${r.data.thickness}`,t.test(i)?r.style.display="block":r.style.display="none"})}};Ao([fe({type:Boolean,attribute:"search-bar",reflect:!0})],$r.prototype,"searchBar",2);$r=Ao([Se("pg-page-content-vis")],$r);const Qc=$r;var eu=Object.defineProperty,tu=Object.getOwnPropertyDescriptor,ru=(s,e,t,i)=>{for(var r=i>1?void 0:i?tu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&eu(e,t,r),r};let us=class extends tt{constructor(){super(...arguments),this.content=[]}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("visBookmarks").listKey(this.data):we("visBookmarks").title(),ae`
+            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
+                <div class="list" @click=${e=>{if(!(e.target instanceof Element))return;const t=ur(e.target,"pg-vis-list-item");t!==null&&ne.queryStackLayout().setPage("product",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data)},!0)}}>${this.content}</div>
+            </div>
+        `}updated(s){s.has("data")&&setTimeout(()=>{var t;const e=ne.queryStore();this.content=[],(((t=this.data)==null?void 0:t.data)||[]).forEach(async i=>{setTimeout(()=>{i=this.productFromStore(e,i),this.content.push(je(i,ae`<pg-vis-list-item
+                                    role="button"
+                                    style="cursor: pointer;"
+                                    data="${JSON.stringify(i)}"
+                                ></pg-vis-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}productFromStore(s,e){const t=wt(e);for(const i of this.sortVisLists(s.getData("vis")||[])){console.debug(`Search list "${i.title}" for the product key "${t}"`);for(const r of i.data)if(wt(r)===t)return console.debug(`Found "${t}" in "${i.title}"`),e}return console.warn(`Product key "${t}" not found`),e}sortVisLists(s){return s.sort((e,t)=>e.date-t.date).reverse()}};us=ru([Se("pg-page-content-vis-bookmarks")],us);const su=us;var iu=Object.defineProperty,ou=Object.getOwnPropertyDescriptor,nu=(s,e,t,i)=>{for(var r=i>1?void 0:i?ou(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&iu(e,t,r),r};let ds=class extends tt{constructor(){super(...arguments),this.cleanup=new ht,this.content=[]}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("visData").listKey(this.data):we("visData").title(),re`
+            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
+                <ui-flex-grid gap="0.25rem">
+                    ${this.renderActions()} ${this.renderContent()}
+                </ui-flex-grid>
+            </div>
+
+            ${this.renderDialog()}
+        `}renderActions(){return re`
+            <ui-flex-grid-row justify="flex-end" gap="0.25rem">
+                <ui-flex-grid-item flex="0">
+                    <ui-button
+                        name="new-entry"
+                        style="text-wrap: nowrap;"
+                        variant="full"
+                        color="primary"
+                        @click=${async()=>{ne.queryStackLayout().setPage("visDataEdit",e=>{const t=e.children[0];t!==void 0&&(t.data={key:null,value:"",lotto:null,format:null,stamp:null,thickness:null},t.listKey=we("visData").listKey(this.data),t.entryIndex=-1)},!0)}}
+                    >
+                        Neuer Eintrag
+                    </ui-button>
+                </ui-flex-grid-item>
+            </ui-flex-grid-row>
+        `}renderContent(){return re`
+            <ui-flex-grid-item>
+                <div
+                    class="list no-scrollbar"
+                    style="width: 100%; height: 100%; overflow: auto;"
+                    @click=${async e=>{if(!(e.target instanceof Element)||this.data===void 0)return;const t=ur(e.target,"pg-vis-data-list-item");t!==null&&ne.queryStackLayout().setPage("visDataEdit",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data,r.listKey=we("visData").listKey(this.data),r.entryIndex=t.entryIndex)},!0)}}
+                >
+                    ${this.content}
+                </div>
+            </ui-flex-grid-item>
+        `}renderDialog(){return re` <pg-vis-data-dialog @submit=${async e=>{if(this.data===void 0)return;const t={...this.data};this.data.title=e.currentTarget.title;try{we("visData").replaceInStore(ne.queryStore(),{...this.data},t)}catch(i){alert(i),setTimeout(()=>{const r=e.currentTarget;r.invalidTitle=!0,r.show()})}}}></pg-vis-data-dialog> `}updated(s){s.has("data")&&setTimeout(()=>{var e;this.content=[],(((e=this.data)==null?void 0:e.data)||[]).forEach(async(t,i)=>{setTimeout(()=>{this.content.push(je(t,re`<pg-vis-data-list-item
+                                    style="cursor: pointer;"
+                                    data="${JSON.stringify(t)}"
+                                    entry-index=${i}
+                                    show-filter
+                                ></pg-vis-data-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}connectedCallback(){super.connectedCallback();const s=()=>{if(this.data===void 0)return;const r=this.querySelector("pg-vis-data-dialog");r.invalidTitle=!1,r.title=this.data.title,r.show()},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)});const t=we("visData"),i=ne.queryStore();this.cleanup.add(i.addListener("visData",r=>{for(const n of r)t.listKey(n)===t.listKey(this.data)&&(this.data=n)}))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};ds=nu([Se("pg-page-content-vis-data")],ds);const au=ds;var lu=Object.defineProperty,cu=Object.getOwnPropertyDescriptor,uu=(s,e,t,i)=>{for(var r=i>1?void 0:i?cu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&lu(e,t,r),r};let ps=class extends tt{render(){return re`
+            <div
+                class="container no-scrollbar"
+                style="${Gt({width:"100%",height:"100%",overflow:"auto"})}"
+            >
+                <ui-flex-grid gap="0.25rem">
+                    <ui-flex-grid-item>
+                        ${this.data!==void 0?re`<pg-alert-list-item
+                                  data=${JSON.stringify(this.data)}
+                              ></pg-alert-list-item>`:""}
+                    </ui-flex-grid-item>
+
+                    <ui-flex-grid-item>
+                        <p class="description" style="padding: var(--ui-spacing);"></p>
+                    </ui-flex-grid-item>
+                </ui-flex-grid>
+            </div>
+        `}updated(s){if(this.data!==void 0){const e=this.querySelector(".description");e.innerHTML=this.data.desc.join("<br/>")}}firstUpdated(s){this.style.overflow="auto"}};ps=uu([Se("pg-page-content-alert")],ps);const du=ps;var pu=Object.defineProperty,hu=Object.getOwnPropertyDescriptor,Oo=(s,e,t,i)=>{for(var r=i>1?void 0:i?hu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&pu(e,t,r),r};let hs=class extends Pe{createRenderRoot(){return this}render(){return re`
             <ui-button variant="outline" color="secondary" ripple @click=${()=>{if(this.product===void 0)return;const e=ne.queryBookmarkSelectDialog();e.product=this.product,e.show()}}>
                 <ui-svg style="width: 2rem;">${ze.smoothieLineIcons.bookmark}</ui-svg>
                 Speichern
             </ui-button>
-        `}};Po([fe({type:Object,attribute:"product",reflect:!1})],ds.prototype,"product",2);ds=Po([Se("pg-bookmarks-action")],ds);var Yc=Object.defineProperty,Xc=Object.getOwnPropertyDescriptor,qs=(s,e,t,i)=>{for(var r=i>1?void 0:i?Xc(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Yc(e,t,r),r};let Xt=class extends tt{constructor(){super(...arguments),this.modified=!1,this.deleteEntry=!1,this.cleanup=new ht}render(){return this.data===void 0||this.listKey===void 0||this.entryIndex===void 0?re``:re`
+        `}};Oo([fe({type:Object,attribute:"product",reflect:!1})],hs.prototype,"product",2);hs=Oo([Se("pg-bookmarks-action")],hs);var gu=Object.defineProperty,fu=Object.getOwnPropertyDescriptor,mu=(s,e,t,i)=>{for(var r=i>1?void 0:i?fu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&gu(e,t,r),r};let gs=class extends tt{render(){const s=e=>{if(!(e.target instanceof Element)||this.data===void 0)return;const t=ur(e.target,"pg-vis-data-list-item");t!==null&&ne.queryStackLayout().setPage("visDataEdit",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data,r.listKey=t.getAttribute("data-listKey")||void 0,r.entryIndex=t.entryIndex)},!0)};return re`
+            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
+                <ui-flex-grid gap="0.25rem">
+                    <ui-flex-grid-item>
+                        ${this.data!==void 0?re`<pg-vis-list-item
+                                  data=${JSON.stringify(this.data)}
+                              ></pg-vis-list-item>`:""}
+                    </ui-flex-grid-item>
+
+                    <ui-flex-grid-row justify="flex-end" wrap="warp" gap="0.25rem">
+                        <ui-flex-grid-item flex="0">
+                            <pg-bookmarks-action
+                                product="${JSON.stringify(this.data)||""}"
+                            ></pg-bookmarks-action>
+                        </ui-flex-grid-item>
+                    </ui-flex-grid-row>
+
+                    <ui-flex-grid
+                        class="list"
+                        direction="column"
+                        gap="0.25rem"
+                        @click=${s}
+                    >
+                        ${Ce}
+                    </ui-flex-grid>
+                </ui-flex-grid>
+            </div>
+        `}updated(s){s.has("data")&&this.updateContent()}updateContent(){if(this.data===void 0)return re``;const s=ne.queryStore().getData("visData");if(s===void 0)return re``;const e=this.querySelector(".list"),t=we("visData");let i=-1;for(const r of s){i++;const n=t.listKey(r);let o=!1;for(const a of r.data)setTimeout(()=>{if(!this.isLotto(a.lotto,this.data.lotto)||!this.isFormat(a.format,this.data.format)||!this.isStamp(a.stamp,this.data.stamp)||!this.isThickness(a.thickness,this.data.thickness))return;if(!o){o=!0;const h=new Je;h.innerHTML=`
+                            <ui-heading level="3"> ${r.title} </ui-heading>
+                        `,e.appendChild(h)}const c=new Wc;c.style.cursor="pointer",c.role="button",c.data=a,c.entryIndex=i,c.setAttribute("data-listKey",n),e.appendChild(c)});o=!1}}isLotto(s,e){return s===null?!0:new RegExp(s,"i").test(e)}isFormat(s,e){return s===null?!0:new RegExp(s,"i").test(e)}isStamp(s,e){return s===null?!0:new RegExp(s,"i").test(e)}isThickness(s,e){return s===null?!0:new RegExp(s,"i").test(e.toString())}};gs=mu([Se("pg-page-contents-product")],gs);const yu=gs;var vu=Object.defineProperty,_u=Object.getOwnPropertyDescriptor,qs=(s,e,t,i)=>{for(var r=i>1?void 0:i?_u(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&vu(e,t,r),r};let Xt=class extends tt{constructor(){super(...arguments),this.modified=!1,this.deleteEntry=!1,this.cleanup=new ht}render(){return this.data===void 0||this.listKey===void 0||this.entryIndex===void 0?re``:re`
             <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
@@ -2446,168 +2607,7 @@ var Uo=Object.defineProperty;var jo=(s,e,t)=>e in s?Uo(s,e,{enumerable:!0,config
                     </ui-flex-grid-item>
                 </ui-flex-grid>
             </div>
-        `}firstUpdated(s){super.firstUpdated(s);const e=ne.queryStore(),i=ne.queryStackLayout().events.addListener("change",()=>{i(),e.updateData("visData",r=>{if(!this.modified||this.data===void 0||this.listKey===void 0||this.entryIndex===void 0)return r;const n=we("visData");for(const o of r)if(n.listKey(o)===this.listKey){if(this.deleteEntry){this.entryIndex>-1&&o.data.splice(this.entryIndex,1);break}this.entryIndex<0?o.data.unshift(this.data):o.data[this.entryIndex]=this.data;break}return r})})}connectedCallback(){super.connectedCallback();const s=()=>{confirm("Möchten Sie diesen Eintrag wirklich löschen?")&&(this.modified=!0,this.deleteEntry=!0,ne.queryStackLayout().goBack())},e=ne.queryAppBar().contentName("trash").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};qs([fe({type:String,attribute:"list-key",reflect:!0})],Xt.prototype,"listKey",2);qs([fe({type:Number,attribute:"entry-index",reflect:!0})],Xt.prototype,"entryIndex",2);Xt=qs([Se("pg-page-content-vis-data-edit")],Xt);const Qc=Xt;var eu=Object.defineProperty,tu=Object.getOwnPropertyDescriptor,Br=(s,e,t,i)=>{for(var r=i>1?void 0:i?tu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&eu(e,t,r),r};let Dt=class extends Pe{createRenderRoot(){return this.style.display="block",this.style.padding="var(--ui-spacing)",this.style.overflow="hidden",this.style.position="relative",this.style.borderRadius="0",this.style.borderBottom="1px solid hsl(var(--ui-hsl-borderColor)",this}render(){return this.data===void 0?re``:re`
-            <ui-flex-grid gap="0.25rem">
-                ${this.data.key!==null?re`
-                          <ui-flex-grid-item>
-                              <ui-primary wght="650"> ${this.data.key} </ui-primary>
-                          </ui-flex-grid-item>
-                      `:""}
-                ${this.renderFilterTags()}
-
-                <ui-flex-grid-item>
-                    <ui-text name="value">${this.data.value}</ui-text>
-                </ui-flex-grid-item>
-            </ui-flex-grid>
-        `}renderFilterTags(){if(this.data===void 0||!this.showFilter)return re``;const s=[];return this.data.lotto!==null&&s.push(re`
-                <ui-flex-grid-item flex="0">
-                    <code>${this.data.lotto}</code>
-                </ui-flex-grid-item>
-            `),this.data.format!==null&&s.push(re`
-                <ui-flex-grid-item flex="0">
-                    <code>${this.data.format}</code>
-                </ui-flex-grid-item>
-            `),this.data.stamp!==null&&s.push(re`
-                <ui-flex-grid-item flex="0">
-                    <code>${this.data.stamp}</code>
-                </ui-flex-grid-item>
-            `),this.data.thickness!==null&&s.push(re`
-                <ui-flex-grid-item flex="0">
-                    <code>${this.data.thickness}</code>
-                </ui-flex-grid-item>
-            `),re`
-            <ui-flex-grid gap="0">
-                ${s.length>0?re`<ui-secondary>Filter</ui-secondary>`:""}
-                <ui-flex-grid-row gap="0.25rem"> ${s} </ui-flex-grid-row>
-            </ui-flex-grid>
-
-            ${s.length>0?re`<br />`:""}
-        `}updated(s){var e;this.querySelector('ui-text[name="value"]').innerHTML=(((e=this.data)==null?void 0:e.value)||"").replaceAll(`
-`,"<br/>").replaceAll(" ","&nbsp;")}};Br([fe({type:Object,attribute:"data",reflect:!0})],Dt.prototype,"data",2);Br([fe({type:Number,attribute:"entry-index",reflect:!0})],Dt.prototype,"entryIndex",2);Br([fe({type:Boolean,attribute:"show-filter",reflect:!0})],Dt.prototype,"showFilter",2);Dt=Br([Se("pg-vis-data-list-item")],Dt);const ru=Dt;var su=Object.defineProperty,iu=Object.getOwnPropertyDescriptor,ou=(s,e,t,i)=>{for(var r=i>1?void 0:i?iu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&su(e,t,r),r};let ps=class extends tt{constructor(){super(...arguments),this.cleanup=new ht,this.content=[]}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("visData").listKey(this.data):we("visData").title(),re`
-            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
-                <ui-flex-grid gap="0.25rem">
-                    ${this.renderActions()} ${this.renderContent()}
-                </ui-flex-grid>
-            </div>
-
-            ${this.renderDialog()}
-        `}renderActions(){return re`
-            <ui-flex-grid-row justify="flex-end" gap="0.25rem">
-                <ui-flex-grid-item flex="0">
-                    <ui-button
-                        name="new-entry"
-                        style="text-wrap: nowrap;"
-                        variant="full"
-                        color="primary"
-                        @click=${async()=>{ne.queryStackLayout().setPage("visDataEdit",e=>{const t=e.children[0];t!==void 0&&(t.data={key:null,value:"",lotto:null,format:null,stamp:null,thickness:null},t.listKey=we("visData").listKey(this.data),t.entryIndex=-1)},!0)}}
-                    >
-                        Neuer Eintrag
-                    </ui-button>
-                </ui-flex-grid-item>
-            </ui-flex-grid-row>
-        `}renderContent(){return re`
-            <ui-flex-grid-item>
-                <div
-                    class="list no-scrollbar"
-                    style="width: 100%; height: 100%; overflow: auto;"
-                    @click=${async e=>{if(!(e.target instanceof Element)||this.data===void 0)return;const t=ur(e.target,"pg-vis-data-list-item");t!==null&&ne.queryStackLayout().setPage("visDataEdit",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data,r.listKey=we("visData").listKey(this.data),r.entryIndex=t.entryIndex)},!0)}}
-                >
-                    ${this.content}
-                </div>
-            </ui-flex-grid-item>
-        `}renderDialog(){return re` <pg-vis-data-dialog @submit=${async e=>{if(this.data===void 0)return;const t={...this.data};this.data.title=e.currentTarget.title;try{we("visData").replaceInStore(ne.queryStore(),{...this.data},t)}catch(i){alert(i),setTimeout(()=>{const r=e.currentTarget;r.invalidTitle=!0,r.show()})}}}></pg-vis-data-dialog> `}updated(s){s.has("data")&&setTimeout(()=>{var e;this.content=[],(((e=this.data)==null?void 0:e.data)||[]).forEach(async(t,i)=>{setTimeout(()=>{this.content.push(je(t,re`<pg-vis-data-list-item
-                                    style="cursor: pointer;"
-                                    data="${JSON.stringify(t)}"
-                                    entry-index=${i}
-                                    show-filter
-                                ></pg-vis-data-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}connectedCallback(){super.connectedCallback();const s=()=>{if(this.data===void 0)return;const r=this.querySelector("pg-vis-data-dialog");r.invalidTitle=!1,r.title=this.data.title,r.show()},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)});const t=we("visData"),i=ne.queryStore();this.cleanup.add(i.addListener("visData",r=>{for(const n of r)t.listKey(n)===t.listKey(this.data)&&(this.data=n)}))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};ps=ou([Se("pg-page-content-vis-data")],ps);const nu=ps;var au=Object.defineProperty,lu=Object.getOwnPropertyDescriptor,cu=(s,e,t,i)=>{for(var r=i>1?void 0:i?lu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&au(e,t,r),r};let hs=class extends tt{render(){const s=e=>{if(!(e.target instanceof Element)||this.data===void 0)return;const t=ur(e.target,"pg-vis-data-list-item");t!==null&&ne.queryStackLayout().setPage("visDataEdit",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data,r.listKey=t.getAttribute("data-listKey")||void 0,r.entryIndex=t.entryIndex)},!0)};return re`
-            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
-                <ui-flex-grid gap="0.25rem">
-                    <ui-flex-grid-item>
-                        ${this.data!==void 0?re`<pg-vis-list-item
-                                  data=${JSON.stringify(this.data)}
-                              ></pg-vis-list-item>`:""}
-                    </ui-flex-grid-item>
-
-                    <ui-flex-grid-row justify="flex-end" wrap="warp" gap="0.25rem">
-                        <ui-flex-grid-item flex="0">
-                            <pg-bookmarks-action
-                                product="${JSON.stringify(this.data)||""}"
-                            ></pg-bookmarks-action>
-                        </ui-flex-grid-item>
-                    </ui-flex-grid-row>
-
-                    <ui-flex-grid
-                        class="list"
-                        direction="column"
-                        gap="0.25rem"
-                        @click=${s}
-                    >
-                        ${Ce}
-                    </ui-flex-grid>
-                </ui-flex-grid>
-            </div>
-        `}updated(s){s.has("data")&&this.updateContent()}updateContent(){if(this.data===void 0)return re``;const s=ne.queryStore().getData("visData");if(s===void 0)return re``;const e=this.querySelector(".list"),t=we("visData");let i=-1;for(const r of s){i++;const n=t.listKey(r);let o=!1;for(const a of r.data)setTimeout(()=>{if(!this.isLotto(a.lotto,this.data.lotto)||!this.isFormat(a.format,this.data.format)||!this.isStamp(a.stamp,this.data.stamp)||!this.isThickness(a.thickness,this.data.thickness))return;if(!o){o=!0;const h=new Je;h.innerHTML=`
-                            <ui-heading level="3"> ${r.title} </ui-heading>
-                        `,e.appendChild(h)}const c=new ru;c.style.cursor="pointer",c.role="button",c.data=a,c.entryIndex=i,c.setAttribute("data-listKey",n),e.appendChild(c)});o=!1}}isLotto(s,e){return s===null?!0:new RegExp(s,"i").test(e)}isFormat(s,e){return s===null?!0:new RegExp(s,"i").test(e)}isStamp(s,e){return s===null?!0:new RegExp(s,"i").test(e)}isThickness(s,e){return s===null?!0:new RegExp(s,"i").test(e.toString())}};hs=cu([Se("pg-page-contents-product")],hs);const uu=hs;var du=Object.defineProperty,pu=Object.getOwnPropertyDescriptor,Ao=(s,e,t,i)=>{for(var r=i>1?void 0:i?pu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&du(e,t,r),r};let Or=class extends Pe{createRenderRoot(){return this.style.display="block",this.style.padding="var(--ui-spacing)",this.style.overflow="hidden",this.style.position="relative",this.style.borderRadius="0",this.style.borderBottom="1px solid hsl(var(--ui-hsl-borderColor)",this}render(){return this.data===void 0?re``:re`
-            <ui-flex-grid gap="0.25rem">
-                <ui-flex-grid-row gap="0.25rem">
-                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
-                        <ui-text
-                            style="color: hsl(var(--ui-hsl-primary));"
-                            wght="750"
-                        >
-                            ${this.data.lotto}
-                        </ui-text>
-                    </ui-flex-grid-item>
-
-                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
-                        <ui-text>${this.data.name}</ui-text>
-                    </ui-flex-grid-item>
-                </ui-flex-grid-row>
-
-                <ui-flex-grid-row gap="0.25rem">
-                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
-                        <ui-text>${this.data.format}</ui-text>
-                    </ui-flex-grid-item>
-
-                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
-                        <ui-text>${this.data.stamp}</ui-text>
-                    </ui-flex-grid-item align="center">
-
-                    <ui-flex-grid-item style="padding: var(--ui-spacing);" align="center">
-                        <ui-text>${this.data.thickness}</ui-text>
-                    </ui-flex-grid-item>
-                </ui-flex-grid-row>
-            </ui-flex-grid>
-        `}};Ao([fe({type:Object,attribute:"data",reflect:!0})],Or.prototype,"data",2);Or=Ao([Se("pg-vis-list-item")],Or);const hu=Or;var gu=Object.defineProperty,fu=Object.getOwnPropertyDescriptor,Oo=(s,e,t,i)=>{for(var r=i>1?void 0:i?fu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&gu(e,t,r),r};let $r=class extends tt{constructor(){super(...arguments),this.cleanup=new ht}render(){var s;return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("vis").listKey(this.data):we("vis").title(),re`
-            <pg-search-bar
-                title="Produktsuche"
-                storage-key="${(s=this.data)==null?void 0:s.title}"
-                ?active=${!!this.searchBar}
-                @change=${async e=>{await this.filter(e.currentTarget.value())}}
-            ></pg-search-bar>
-
-            <div
-                class="container no-scrollbar"
-                style="${Gt({width:"100%",height:"100%",overflow:"auto"})}"
-            >
-                <div
-                    class="list"
-                    @click=${async e=>{if(!(e.target instanceof Element))return;const t=ur(e.target,"pg-vis-list-item");t!==null&&ne.queryStackLayout().setPage("product",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data)},!0)}}
-                >
-                    ${Ce}
-                </div>
-            </div>
-        `}updated(s){const e=this.querySelector("pg-search-bar"),t=this.querySelector("div.container");this.searchBar?(t.style.paddingTop=`calc(${e.clientHeight}px + var(--ui-spacing) * 2)`,this.filter(e.value())):(t.style.paddingTop="0",this.filter("")),s.has("data")&&setTimeout(()=>this.updateContent())}updateContent(){var e;const s=this.querySelector(".list");if(this.data!==void 0)for(const t of((e=this.data)==null?void 0:e.data)||[])setTimeout(()=>{const i=new hu;i.role="button",i.style.cursor="pointer",i.data=t,s.appendChild(i)})}connectedCallback(){super.connectedCallback();const s=ne.queryAppBar(),e=async()=>this.searchBar=!this.searchBar,t=s.contentName("search").contentAt(0);t.addEventListener("click",e),this.cleanup.add(()=>t.removeEventListener("click",e))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}async filter(s){const e=this.querySelector(".list"),t=Ni.generateRegExp(s);let i;for(const r of[...e.children])r.data!==void 0&&setTimeout(()=>{i=`${r.data.lotto} ${r.data.name} ${r.data.format} ${r.data.stamp} ${r.data.thickness}`,t.test(i)?r.style.display="block":r.style.display="none"})}};Oo([fe({type:Boolean,attribute:"search-bar",reflect:!0})],$r.prototype,"searchBar",2);$r=Oo([Se("pg-page-content-vis")],$r);const mu=$r;var yu=Object.defineProperty,vu=Object.getOwnPropertyDescriptor,_u=(s,e,t,i)=>{for(var r=i>1?void 0:i?vu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&yu(e,t,r),r};let gs=class extends tt{constructor(){super(...arguments),this.content=[]}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("visBookmarks").listKey(this.data):we("visBookmarks").title(),ae`
-            <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
-                <div class="list" @click=${e=>{if(!(e.target instanceof Element))return;const t=ur(e.target,"pg-vis-list-item");t!==null&&ne.queryStackLayout().setPage("product",i=>{const r=i.children[0];r!==void 0&&(r.data=t.data)},!0)}}>${this.content}</div>
-            </div>
-        `}updated(s){s.has("data")&&setTimeout(()=>{var t;const e=ne.queryStore();this.content=[],(((t=this.data)==null?void 0:t.data)||[]).forEach(async i=>{setTimeout(()=>{i=this.productFromStore(e,i),this.content.push(je(i,ae`<pg-vis-list-item
-                                    role="button"
-                                    style="cursor: pointer;"
-                                    data="${JSON.stringify(i)}"
-                                ></pg-vis-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}productFromStore(s,e){const t=wt(e);for(const i of this.sortVisLists(s.getData("vis")||[])){console.debug(`Search list "${i.title}" for the product key "${t}"`);for(const r of i.data)if(wt(r)===t)return console.debug(`Found "${t}" in "${i.title}"`),e}return console.warn(`Product key "${t}" not found`),e}sortVisLists(s){return s.sort((e,t)=>e.date-t.date).reverse()}};gs=_u([Se("pg-page-content-vis-bookmarks")],gs);const bu=gs;var wu=Object.defineProperty,Eu=Object.getOwnPropertyDescriptor,Ft=(s,e,t,i)=>{for(var r=i>1?void 0:i?Eu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&wu(e,t,r),r};let Xe=class extends Pe{createRenderRoot(){return this}render(){let s=!1;return re`
+        `}firstUpdated(s){super.firstUpdated(s);const e=ne.queryStore(),i=ne.queryStackLayout().events.addListener("change",()=>{i(),e.updateData("visData",r=>{if(!this.modified||this.data===void 0||this.listKey===void 0||this.entryIndex===void 0)return r;const n=we("visData");for(const o of r)if(n.listKey(o)===this.listKey){if(this.deleteEntry){this.entryIndex>-1&&o.data.splice(this.entryIndex,1);break}this.entryIndex<0?o.data.unshift(this.data):o.data[this.entryIndex]=this.data;break}return r})})}connectedCallback(){super.connectedCallback();const s=()=>{confirm("Möchten Sie diesen Eintrag wirklich löschen?")&&(this.modified=!0,this.deleteEntry=!0,ne.queryStackLayout().goBack())},e=ne.queryAppBar().contentName("trash").contentAt(0);e.addEventListener("click",s),this.cleanup.add(()=>{e.removeEventListener("click",s)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};qs([fe({type:String,attribute:"list-key",reflect:!0})],Xt.prototype,"listKey",2);qs([fe({type:Number,attribute:"entry-index",reflect:!0})],Xt.prototype,"entryIndex",2);Xt=qs([Se("pg-page-content-vis-data-edit")],Xt);const bu=Xt;var wu=Object.defineProperty,Eu=Object.getOwnPropertyDescriptor,Ft=(s,e,t,i)=>{for(var r=i>1?void 0:i?Eu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&wu(e,t,r),r};let Xe=class extends Pe{createRenderRoot(){return this}render(){let s=!1;return re`
             <ui-flex-grid-row>
                 <ui-flex-grid-item>
                     <ui-label
@@ -2886,7 +2886,7 @@ var Uo=Object.defineProperty;var jo=(s,e,t)=>e in s?Uo(s,e,{enumerable:!0,config
             </pg-vis-bookmarks-dialog>
 
             <pg-bookmark-select-dialog></pg-bookmark-select-dialog>
-        `}firstUpdated(s){this.style.position="fixed",this.style.top="0",this.style.right="0",this.style.bottom="0",this.style.left="0",this.registerPages(),this.handleStackLayoutChanges(),this.storeEventHandlers()}registerPages(){const s=ne.queryStackLayout();s.registerPage("alertLists",()=>{const e=new He;return e.name="alertLists",e.appendChild(new Nc),e}),s.registerPage("metalSheets",()=>{const e=new He;return e.name="metalSheets",e.appendChild(new Kc),e}),s.registerPage("vis",()=>{const e=new He;return e.name="vis",e.appendChild(new mu),e}),s.registerPage("visBookmarks",()=>{const e=new He;return e.name="visBookmarks",e.appendChild(new bu),e}),s.registerPage("visData",()=>{const e=new He;return e.name="visData",e.appendChild(new nu),e}),s.registerPage("alert",()=>{const e=new He;return e.name="alert",e.appendChild(new Ic),e}),s.registerPage("product",()=>{const e=new He;return e.name="product",e.append(new uu),e}),s.registerPage("visDataEdit",()=>{const e=new He;return e.name="visDataEdit",e.append(new Qc),e})}handleStackLayoutChanges(){const s=ne.queryStackLayout(),e=ne.queryAppBar(),t=ne.queryDrawer();s.events.addListener("change",({current:i})=>{if(s.stackSize()>1?e.contentName("back").show():e.contentName("back").hide(),e.content("left").forEach(r=>{r.name==="menu"||r.name==="back"||r.hide()}),e.content("right").forEach(r=>{r.hide()}),i===null){e.contentName("title").contentAt(0).innerText="PG: Vis",t.open=!0;return}switch(i.name){case"alertLists":e.contentName("search").show();break;case"metalSheets":e.contentName("edit").show();break;case"vis":e.contentName("search").show();break;case"visData":e.contentName("edit").show();break;case"visDataEdit":e.contentName("trash").show();break}})}storeEventHandlers(){const s=ne.queryStore();s.addListener("theme",e=>{const t=ne.queryThemeHandler();t.theme=e.name},!0),this.drawerGroupItemsRendering(s,"alertLists"),this.drawerGroupItemsRendering(s,"metalSheets"),this.drawerGroupItemsRendering(s,"vis"),this.drawerGroupItemsRendering(s,"visBookmarks"),this.drawerGroupItemsRendering(s,"visData")}drawerGroupItemsRendering(s,e){s.addListener(e,t=>{const i=this.querySelector(`ui-drawer-group[name="${e}"]`),r=parseInt(i.getAttribute("data-fixed-items")||"0");Array.from(i.children).slice(r).forEach(o=>i.removeChild(o));const n=we(e);t.forEach(async o=>{const a=new Ca;i.appendChild(a);const c=new ku;switch(a.appendChild(c),c.storeKey=n.key(),c.storeListKey=n.listKey(o),c.primary=n.listKey(o),e){case"metalSheets":(h=>{c.primary=(h.data.press>=0?`[P${h.data.press}] `:"")+n.listKey(h),c.secondary=`${h.data.table.data.length} Einträge`})(o);break;default:c.secondary=`${o.data.length} Einträge`}c.allowDeletion=!0})},!0)}};ne=xu([Se("pg-app")],ne);class cr{key(){return""}listKey(e){return"title"in e?e.title:"unknown"}title(){return""}fileName(e){return`${this.listKey(e)}.json`}zipFileName(){return`${this.title()} - ${new Date().getTime()}.zip`}validate(e){return JSON.parse(e)}sort(e){const t=[],i=e.map(r=>`${this.listKey(r)}`).sort();for(const r of i){const n=e.find(o=>`${this.listKey(o)}`===r);n!==void 0&&t.push(n)}return t}replaceInStore(e,t,i){const r=this.listKey(t),n=this.listKey(i);if(n!==r){for(const o of e.getData(this.key())||[])if(this.listKey(o)===r)throw new Error(`Liste "${r}" existiert bereits!"`)}e.updateData(this.key(),o=>{for(let a=0;a<o.length;a++)this.listKey(o[a])===n&&(o[a]=t);return o})}addToStore(e,t,i){const r=e.getData(this.key());if(r===void 0)return;for(const a of t){const c=this.listKey(a);if(r.find(m=>this.listKey(m)===c)!==void 0)throw new Error(`Liste "${c}" existiert bereits!"`)}const o=[...r.filter(a=>t.find(h=>this.listKey(h)===this.listKey(a))===void 0),...t];e.setData(this.key(),i?this.sort(o):o)}}class Cu extends cr{key(){return"alertLists"}listKey(e){return e.title}title(){return"Alarm Listen"}fileName(e){return`Alarm Liste - ${super.fileName(e)}`}validate(e){const t=super.validate(e);if(typeof(t==null?void 0:t.title)!="string"||!("data"in t)||!Array.isArray(t.data))return null;for(const i of t.data)if(!("from"in i&&"to"in i&&"alert"in i&&"desc"in i)||typeof i.from!="number"||typeof i.to!="number"||typeof i.alert!="string"||(typeof i.desc=="string"&&(i.desc=i.desc.split(`
+        `}firstUpdated(s){this.style.position="fixed",this.style.top="0",this.style.right="0",this.style.bottom="0",this.style.left="0",this.registerPages(),this.handleStackLayoutChanges(),this.storeEventHandlers()}registerPages(){const s=ne.queryStackLayout();s.registerPage("alertLists",()=>{const e=new He;return e.name="alertLists",e.appendChild(new jc),e}),s.registerPage("metalSheets",()=>{const e=new He;return e.name="metalSheets",e.appendChild(new Mc),e}),s.registerPage("vis",()=>{const e=new He;return e.name="vis",e.appendChild(new Qc),e}),s.registerPage("visBookmarks",()=>{const e=new He;return e.name="visBookmarks",e.appendChild(new su),e}),s.registerPage("visData",()=>{const e=new He;return e.name="visData",e.appendChild(new au),e}),s.registerPage("alert",()=>{const e=new He;return e.name="alert",e.appendChild(new du),e}),s.registerPage("product",()=>{const e=new He;return e.name="product",e.append(new yu),e}),s.registerPage("visDataEdit",()=>{const e=new He;return e.name="visDataEdit",e.append(new bu),e})}handleStackLayoutChanges(){const s=ne.queryStackLayout(),e=ne.queryAppBar(),t=ne.queryDrawer();s.events.addListener("change",({current:i})=>{if(s.stackSize()>1?e.contentName("back").show():e.contentName("back").hide(),e.content("left").forEach(r=>{r.name==="menu"||r.name==="back"||r.hide()}),e.content("right").forEach(r=>{r.hide()}),i===null){e.contentName("title").contentAt(0).innerText="PG: Vis",t.open=!0;return}switch(i.name){case"alertLists":e.contentName("search").show();break;case"metalSheets":e.contentName("edit").show();break;case"vis":e.contentName("search").show();break;case"visData":e.contentName("edit").show();break;case"visDataEdit":e.contentName("trash").show();break}})}storeEventHandlers(){const s=ne.queryStore();s.addListener("theme",e=>{const t=ne.queryThemeHandler();t.theme=e.name},!0),this.drawerGroupItemsRendering(s,"alertLists"),this.drawerGroupItemsRendering(s,"metalSheets"),this.drawerGroupItemsRendering(s,"vis"),this.drawerGroupItemsRendering(s,"visBookmarks"),this.drawerGroupItemsRendering(s,"visData")}drawerGroupItemsRendering(s,e){s.addListener(e,t=>{const i=this.querySelector(`ui-drawer-group[name="${e}"]`),r=parseInt(i.getAttribute("data-fixed-items")||"0");Array.from(i.children).slice(r).forEach(o=>i.removeChild(o));const n=we(e);t.forEach(async o=>{const a=new Ca;i.appendChild(a);const c=new ku;switch(a.appendChild(c),c.storeKey=n.key(),c.storeListKey=n.listKey(o),c.primary=n.listKey(o),e){case"metalSheets":(h=>{c.primary=(h.data.press>=0?`[P${h.data.press}] `:"")+n.listKey(h),c.secondary=`${h.data.table.data.length} Einträge`})(o);break;default:c.secondary=`${o.data.length} Einträge`}c.allowDeletion=!0})},!0)}};ne=xu([Se("pg-app")],ne);class cr{key(){return""}listKey(e){return"title"in e?e.title:"unknown"}title(){return""}fileName(e){return`${this.listKey(e)}.json`}zipFileName(){return`${this.title()} - ${new Date().getTime()}.zip`}validate(e){return JSON.parse(e)}sort(e){const t=[],i=e.map(r=>`${this.listKey(r)}`).sort();for(const r of i){const n=e.find(o=>`${this.listKey(o)}`===r);n!==void 0&&t.push(n)}return t}replaceInStore(e,t,i){const r=this.listKey(t),n=this.listKey(i);if(n!==r){for(const o of e.getData(this.key())||[])if(this.listKey(o)===r)throw new Error(`Liste "${r}" existiert bereits!"`)}e.updateData(this.key(),o=>{for(let a=0;a<o.length;a++)this.listKey(o[a])===n&&(o[a]=t);return o})}addToStore(e,t,i){const r=e.getData(this.key());if(r===void 0)return;for(const a of t){const c=this.listKey(a);if(r.find(m=>this.listKey(m)===c)!==void 0)throw new Error(`Liste "${c}" existiert bereits!"`)}const o=[...r.filter(a=>t.find(h=>this.listKey(h)===this.listKey(a))===void 0),...t];e.setData(this.key(),i?this.sort(o):o)}}class Cu extends cr{key(){return"alertLists"}listKey(e){return e.title}title(){return"Alarm Listen"}fileName(e){return`Alarm Liste - ${super.fileName(e)}`}validate(e){const t=super.validate(e);if(typeof(t==null?void 0:t.title)!="string"||!("data"in t)||!Array.isArray(t.data))return null;for(const i of t.data)if(!("from"in i&&"to"in i&&"alert"in i&&"desc"in i)||typeof i.from!="number"||typeof i.to!="number"||typeof i.alert!="string"||(typeof i.desc=="string"&&(i.desc=i.desc.split(`
 `)),!Array.isArray(i.desc))||i.desc.filter(r=>typeof r!="string").length>0)return null;return t}}class Pu extends cr{key(){return"metalSheets"}listKey(e){return`${e.format} ${e.toolID}`}title(){return"Blech Listen"}fileName(e){return`Blech Liste - ${super.fileName(e)}`}validate(e){const t=super.validate(e);if(typeof t.format!="string"||(t.toolID||(t.toolID=""),typeof t.toolID!="string")||!("data"in t)||typeof t.data!="object"||typeof t.data.press!="number")return null;if(!("table"in t.data))t.data.table={header:[],data:[]};else{if(typeof t.data.table!="object"||!("header"in t.data.table)||!("data"in t.data.table)||!Array.isArray(t.data.table.header)||!Array.isArray(t.data.table.data))return null;for(const i of t.data.table.header)if(typeof i!="string")return null;for(const i of t.data.table.data)for(const r of i)if(typeof r!="string")return null}return t}}class Au extends cr{key(){return"visBookmarks"}listKey(e){return`${e.title}`}title(){return"Vis Bookmarks"}fileName(e){return`Vis Bookmarks - ${super.fileName(e)}`}}class Ou extends cr{key(){return"visData"}listKey(e){return`${e.title}`}title(){return"Vis Data"}fileName(e){return`Vis Data - ${super.fileName(e)}`}validate(e){const t=super.validate(e);if(typeof t.title!="string"||!Array.isArray(t.data))return null;for(const i of t.data)if(typeof i.key!="string"&&i.key!==null||typeof i.value!="string"||typeof i.lotto!="string"&&i.lotto!==null||typeof i.format!="string"&&i.format!==null||typeof i.thickness!="string"&&i.thickness!==null||typeof i.stamp!="string"&&i.stamp!==null)return null;return t}}class $u extends cr{key(){return"vis"}listKey(e){return`${e.title}`}title(){return"Vis"}fileName(e){return`Vis Liste - ${super.fileName(e)}`}validate(e){let t;try{t=super.validate(e)}catch{return fl(e)}if((typeof t.date!="number"||t.date<=0)&&(t.date=new Date().getTime()),typeof t.title!="string"||!Array.isArray(t.data))return null;for(const i of t.data)if(typeof i!="object"||!("lotto"in i)||!("name"in i)||!("format"in i)||!("thickness"in i)||!("stamp"in i))return null;return t}}function wt(s){return`${s.lotto} ${s.name}`}function we(s){switch(s){case"alertLists":return new Cu;case"metalSheets":return new Pu;case"vis":return new $u;case"visBookmarks":return new Au;case"visData":return new Ou;default:throw new Error(`unknown "${s}"`)}}async function $o(s,e){try{const t=await Ru(e),i=we(s),r=[];for(const a of Object.values(t.data.files||{})){if(!(a!=null&&a.content))continue;const c=i.validate(a.content);if(c===null)throw console.error(`Invalid data for "${i.title()}":`,a.content),new Error(`ungültige Daten für "${i.title()}"!`);r.push(c)}const n=await Du(e),o=ne.queryStore();o.setData(s,[]),i.addToStore(o,r,!0),o.updateData("gist",a=>(a[`${s}`]={id:e,revision:n},a))}catch(t){alert(`Etwas ist schiefgelaufen: ${t}`);return}}async function Ru(s){const t=await new ko().request("GET /gists/{gist_id}",{gist_id:s,headers:{"X-GitHub-Api-Version":"2022-11-28"}});if(t.status!==200)throw console.error(t),new Error(`anfrage von "GET /gist/${s}" ist mit Statuscode ${t.status} fehlgeschlagen`);return t}async function Du(s){const t=await new ko().request("GET /gists/{gist_id}/commits",{gist_id:s,headers:{"X-GitHub-Api-Version":"2022-11-28"}});return t.status!==200?(console.error(t),-1):t.data.length}function ur(s,e){for(;!s.matches(e);){if(!s.parentElement)return null;s=s.parentElement}return s}var Lu=Object.defineProperty,Gu=Object.getOwnPropertyDescriptor,Ro=(s,e,t,i)=>{for(var r=i>1?void 0:i?Gu(e,t):e,n=s.length-1,o;n>=0;n--)(o=s[n])&&(r=(i?o(e,t,r):o(r))||r);return i&&r&&Lu(e,t,r),r};let fs=class extends Pe{constructor(){super(...arguments),this.cleanup=new ht}createRenderRoot(){return this}render(){const s=ne.queryStore();return re`
             <ui-dialog title="Bookmark" modal inert>
                 <ui-flex-grid gap="0.25rem">
