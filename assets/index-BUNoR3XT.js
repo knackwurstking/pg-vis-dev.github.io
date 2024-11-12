@@ -2439,12 +2439,12 @@ var Fo=Object.defineProperty;var Uo=(r,e,t)=>e in r?Fo(r,e,{enumerable:!0,config
             <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
                 <div class="list">${this.content}</div>
             </div>
-        `}updated(r){r.has("data")&&setTimeout(()=>{var t;const e=ne.queryStore();this.content=[],(((t=this.data)==null?void 0:t.data)||[]).forEach(async i=>{setTimeout(()=>{i=this.productFromStore(e,i),this.content.push(je(i,ae`<pg-vis-list-item
-                                    role="button"
-                                    style="cursor: pointer;"
-                                    data="${JSON.stringify(i)}"
-                                    route
-                                ></pg-vis-list-item>`))})}),setTimeout(()=>this.requestUpdate())})}productFromStore(r,e){const t=Et(e);for(const i of this.sortVisLists(r.getData("vis")||[])){console.debug(`Search list "${i.title}" for the product key "${t}"`);for(const s of i.data)if(Et(s)===t)return console.debug(`Found "${t}" in "${i.title}"`),e}return console.warn(`Product key "${t}" not found`),e}sortVisLists(r){return r.sort((e,t)=>e.date-t.date).reverse()}};cs=tu([Se("pg-page-content-vis-bookmarks")],cs);const ru=cs;var su=Object.defineProperty,iu=Object.getOwnPropertyDescriptor,ou=(r,e,t,i)=>{for(var s=i>1?void 0:i?iu(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&su(e,t,s),s};let us=class extends rt{constructor(){super(...arguments),this.cleanup=new gt,this.content=[]}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("visData").listKey(this.data):we("visData").title(),re`
+        `}updated(r){r.has("data")&&setTimeout(()=>this.updateContent())}updateContent(){var e;const r=ne.queryStore();this.content=[],(((e=this.data)==null?void 0:e.data)||[]).forEach(async t=>{setTimeout(()=>{t=this.productFromStore(r,t),this.content.push(je(t,ae`<pg-vis-list-item
+                            role="button"
+                            style="cursor: pointer;"
+                            data="${JSON.stringify(t)}"
+                            route
+                        ></pg-vis-list-item>`))})}),setTimeout(()=>this.requestUpdate())}productFromStore(r,e){const t=Et(e);for(const i of this.sortVisLists(r.getData("vis")||[])){console.debug(`Search list "${i.title}" for the product key "${t}"`);for(const s of i.data)if(Et(s)===t)return console.debug(`Found "${t}" in "${i.title}"`),e}return console.warn(`Product key "${t}" not found`),e}sortVisLists(r){return r.sort((e,t)=>e.date-t.date).reverse()}};cs=tu([Se("pg-page-content-vis-bookmarks")],cs);const ru=cs;var su=Object.defineProperty,iu=Object.getOwnPropertyDescriptor,ou=(r,e,t,i)=>{for(var s=i>1?void 0:i?iu(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&su(e,t,s),s};let us=class extends rt{constructor(){super(...arguments),this.cleanup=new gt,this.content=[]}render(){return ne.queryAppBar().contentName("title").contentAt(0).innerText=this.data!==void 0?we("visData").listKey(this.data):we("visData").title(),re`
             <div class="container no-scrollbar" style="width: 100%; height: 100%; overflow: auto;">
                 <ui-flex-grid gap="0.25rem">
                     ${this.renderActions()}
