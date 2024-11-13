@@ -70,7 +70,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const ze=hn(class extends gn{constructor(){super(...arguments),this.key=Oe}render(r,e){return this.key=r,e}update(r,[e,t]){return e!==this.key&&(mn(r),this.key=e),t}});class ks{constructor(){this.listeners={}}addListener(e,t){return this.listeners[e]||(this.listeners[e]=[]),this.listeners[e].push(t),()=>this.removeListener(e,t)}removeListener(e,t){this.listeners[e]&&(this.listeners[e]=this.listeners[e].filter(i=>i!==t))}dispatch(e,t){this.listeners[e]&&this.listeners[e].forEach(i=>i(t))}}class Xe{constructor(){this.callbacks=[]}add(...e){this.callbacks.push(...e)}run(){this.callbacks.filter(e=>(e(),!1))}}/**
+ */const Ie=hn(class extends gn{constructor(){super(...arguments),this.key=Oe}render(r,e){return this.key=r,e}update(r,[e,t]){return e!==this.key&&(mn(r),this.key=e),t}});class ks{constructor(){this.listeners={}}addListener(e,t){return this.listeners[e]||(this.listeners[e]=[]),this.listeners[e].push(t),()=>this.removeListener(e,t)}removeListener(e,t){this.listeners[e]&&(this.listeners[e]=this.listeners[e].filter(i=>i!==t))}dispatch(e,t){this.listeners[e]&&this.listeners[e].forEach(i=>i(t))}}class Xe{constructor(){this.callbacks=[]}add(...e){this.callbacks.push(...e)}run(){this.callbacks.filter(e=>(e(),!1))}}/**
  * @license
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -889,7 +889,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
             ></path>
         </g>
     </svg>
-`,na=Object.freeze(Object.defineProperty({__proto__:null,bookmark:Mn,checkmark:qn,chevronDown:As,chevronLeft:Nn,close:eo,documentNew:Hn,download:Vn,drag:Wn,menu:Kn,moreVertical:Zn,pen:Jn,plus:Yn,power:Xn,printer:Qn,refresh:ea,search:to,settings:ta,share:ra,today:sa,trash:ia,upload:oa},Symbol.toStringTag,{value:"Module"})),Be=Object.freeze(Object.defineProperty({__proto__:null,smoothieLineIcons:na},Symbol.toStringTag,{value:"Module"}));/**
+`,na=Object.freeze(Object.defineProperty({__proto__:null,bookmark:Mn,checkmark:qn,chevronDown:As,chevronLeft:Nn,close:eo,documentNew:Hn,download:Vn,drag:Wn,menu:Kn,moreVertical:Zn,pen:Jn,plus:Yn,power:Xn,printer:Qn,refresh:ea,search:to,settings:ta,share:ra,today:sa,trash:ia,upload:oa},Symbol.toStringTag,{value:"Module"})),ze=Object.freeze(Object.defineProperty({__proto__:null,smoothieLineIcons:na},Symbol.toStringTag,{value:"Module"}));/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -1751,7 +1751,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     @change=${()=>{this.dispatchEvent(new Event("change"))}}
                 />
             </div>
-        `}focus(r){super.focus(r),this.shadowRoot.querySelector("input").focus(r)}blur(){super.blur(),this.shadowRoot.querySelector("input").blur()}click(){super.click(),this.focus()}};Qe([Y({type:String,attribute:"title",reflect:!0})],Me.prototype,"title",2);Qe([Y({type:String,attribute:"type",reflect:!0})],Me.prototype,"type",2);Qe([Y({type:String,attribute:"value"})],Me.prototype,"value",2);Qe([Y({type:String,attribute:"placeholder",reflect:!0})],Me.prototype,"placeholder",2);Qe([Y({type:Boolean,attribute:"invalid",reflect:!0})],Me.prototype,"invalid",2);Qe([Y({type:String,attribute:"min",reflect:!0})],Me.prototype,"min",2);Qe([Y({type:String,attribute:"max",reflect:!0})],Me.prototype,"max",2);Me=Qe([ve("ui-input")],Me);var za=Object.defineProperty,Ma=Object.getOwnPropertyDescriptor,qe=(r,e,t,i)=>{for(var s=i>1?void 0:i?Ma(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&za(e,t,s),s};let Ie=class extends me{constructor(){super(...arguments),this.title="",this.value="",this.placeholder="",this.invalid=!1,this.noSubmit=!1,this.storage=!1,this.storagePrefix="",this.storageKey="",this.role="search"}static get styles(){return Ee`
+        `}focus(r){super.focus(r),this.shadowRoot.querySelector("input").focus(r)}blur(){super.blur(),this.shadowRoot.querySelector("input").blur()}click(){super.click(),this.focus()}};Qe([Y({type:String,attribute:"title",reflect:!0})],Me.prototype,"title",2);Qe([Y({type:String,attribute:"type",reflect:!0})],Me.prototype,"type",2);Qe([Y({type:String,attribute:"value"})],Me.prototype,"value",2);Qe([Y({type:String,attribute:"placeholder",reflect:!0})],Me.prototype,"placeholder",2);Qe([Y({type:Boolean,attribute:"invalid",reflect:!0})],Me.prototype,"invalid",2);Qe([Y({type:String,attribute:"min",reflect:!0})],Me.prototype,"min",2);Qe([Y({type:String,attribute:"max",reflect:!0})],Me.prototype,"max",2);Me=Qe([ve("ui-input")],Me);var za=Object.defineProperty,Ma=Object.getOwnPropertyDescriptor,qe=(r,e,t,i)=>{for(var s=i>1?void 0:i?Ma(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&za(e,t,s),s};let je=class extends me{constructor(){super(...arguments),this.title="",this.value="",this.placeholder="",this.invalid=!1,this.noSubmit=!1,this.storage=!1,this.storagePrefix="",this.storageKey="",this.role="search"}static get styles(){return Ee`
             * {
                 box-sizing: border-box;
             }
@@ -1865,7 +1865,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     ${to}
                 </ui-icon-button>
             </div>
-        `}firstUpdated(r){if(super.firstUpdated(r),this.storage){const e=localStorage.getItem(this.storagePrefix+this.storageKey)||this.value;this.value=e,this.dispatchEvent(new Event("storage"))}}focus(r){super.focus(r),this.shadowRoot.querySelector("input").focus(r)}blur(){super.blur(),this.shadowRoot.querySelector("input").blur()}click(){super.click(),this.focus()}};qe([Y({type:String,attribute:"title",reflect:!0})],Ie.prototype,"title",2);qe([Y({type:String,attribute:"value"})],Ie.prototype,"value",2);qe([Y({type:String,attribute:"placeholder",reflect:!0})],Ie.prototype,"placeholder",2);qe([Y({type:Boolean,attribute:"invalid",reflect:!0})],Ie.prototype,"invalid",2);qe([Y({type:Boolean,attribute:"no-submit",reflect:!0})],Ie.prototype,"noSubmit",2);qe([Y({type:Boolean,attribute:"storage",reflect:!0})],Ie.prototype,"storage",2);qe([Y({type:String,attribute:"storage-prefix",reflect:!0})],Ie.prototype,"storagePrefix",2);qe([Y({type:String,attribute:"storage-key",reflect:!0})],Ie.prototype,"storageKey",2);Ie=qe([ve("ui-search")],Ie);var qa=Object.defineProperty,Na=Object.getOwnPropertyDescriptor,Ls=(r,e,t,i)=>{for(var s=i>1?void 0:i?Na(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&qa(e,t,s),s};let Pr=class extends me{constructor(){super(...arguments),this.open=!1,this.keepOpen=!1}static get styles(){return Ee`
+        `}firstUpdated(r){if(super.firstUpdated(r),this.storage){const e=localStorage.getItem(this.storagePrefix+this.storageKey)||this.value;this.value=e,this.dispatchEvent(new Event("storage"))}}focus(r){super.focus(r),this.shadowRoot.querySelector("input").focus(r)}blur(){super.blur(),this.shadowRoot.querySelector("input").blur()}click(){super.click(),this.focus()}};qe([Y({type:String,attribute:"title",reflect:!0})],je.prototype,"title",2);qe([Y({type:String,attribute:"value"})],je.prototype,"value",2);qe([Y({type:String,attribute:"placeholder",reflect:!0})],je.prototype,"placeholder",2);qe([Y({type:Boolean,attribute:"invalid",reflect:!0})],je.prototype,"invalid",2);qe([Y({type:Boolean,attribute:"no-submit",reflect:!0})],je.prototype,"noSubmit",2);qe([Y({type:Boolean,attribute:"storage",reflect:!0})],je.prototype,"storage",2);qe([Y({type:String,attribute:"storage-prefix",reflect:!0})],je.prototype,"storagePrefix",2);qe([Y({type:String,attribute:"storage-key",reflect:!0})],je.prototype,"storageKey",2);je=qe([ve("ui-search")],je);var qa=Object.defineProperty,Na=Object.getOwnPropertyDescriptor,Ls=(r,e,t,i)=>{for(var s=i>1?void 0:i?Na(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&qa(e,t,s),s};let Pr=class extends me{constructor(){super(...arguments),this.open=!1,this.keepOpen=!1}static get styles(){return Ee`
             * {
                 box-sizing: border-box;
             }
@@ -2197,7 +2197,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                 width: 100%;
                 height: 100%;
             }
-        `}render(){return ae` <slot></slot> `}};Ci=nl([ve("ui-svg")],Ci);var al=Object.defineProperty,ll=Object.getOwnPropertyDescriptor,et=(r,e,t,i)=>{for(var s=i>1?void 0:i?ll(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&al(e,t,s),s};let je=class extends me{constructor(){super(...arguments),this.family="var(--ui-fontFamily)",this.size="var(--ui-fontSize)",this.mono=0,this.casl=1,this.wght=400,this.slnt=0,this.crsv=.5}static get styles(){return Ee`
+        `}render(){return ae` <slot></slot> `}};Ci=nl([ve("ui-svg")],Ci);var al=Object.defineProperty,ll=Object.getOwnPropertyDescriptor,et=(r,e,t,i)=>{for(var s=i>1?void 0:i?ll(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&al(e,t,s),s};let Be=class extends me{constructor(){super(...arguments),this.family="var(--ui-fontFamily)",this.size="var(--ui-fontSize)",this.mono=0,this.casl=1,this.wght=400,this.slnt=0,this.crsv=.5}static get styles(){return Ee`
             :host {
                 display: inline-block;
 
@@ -2214,7 +2214,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     "slnt" var(--_slnt),
                     "CRSV" var(--_crsv) !important;
             }
-        `}render(){return this.style.setProperty("--_family",this.family),this.style.setProperty("--_size",this.size),this.style.setProperty("--_mono",this.mono.toString()),this.style.setProperty("--_casl",this.casl.toString()),this.style.setProperty("--_wght",this.wght.toString()),this.style.setProperty("--_slnt",this.slnt.toString()),this.style.setProperty("--_crsv",this.crsv.toString()),ae`<slot></slot>`}};et([Y({type:String,attribute:"family",reflect:!0})],je.prototype,"family",2);et([Y({type:String,attribute:"size",reflect:!0})],je.prototype,"size",2);et([Y({type:Number,attribute:"mono",reflect:!0})],je.prototype,"mono",2);et([Y({type:Number,attribute:"casl",reflect:!0})],je.prototype,"casl",2);et([Y({type:Number,attribute:"wght",reflect:!0})],je.prototype,"wght",2);et([Y({type:Number,attribute:"slnt",reflect:!0})],je.prototype,"slnt",2);et([Y({type:Number,attribute:"crsv",reflect:!0})],je.prototype,"crsv",2);je=et([ve("ui-text")],je);const Us=je;var cl=Object.defineProperty,ul=Object.getOwnPropertyDescriptor,no=(r,e,t,i)=>{for(var s=i>1?void 0:i?ul(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&cl(e,t,s),s};let ls=class extends Us{constructor(){super(...arguments),this.mono=.25,this.casl=1,this.wght=750,this.slnt=0}render(){switch(this.level){case 6:this.size="0.75rem";break;case 5:this.size="1rem";break;case 4:this.size="1.25rem";break;case 3:this.size="1.5rem";break;case 2:this.size="1.75rem";break;case 1:this.size="2rem";break}return super.render()}};no([Y({type:Number,attribute:"level",reflect:!0})],ls.prototype,"level",2);ls=no([ve("ui-heading")],ls);var dl=Object.defineProperty,pl=Object.getOwnPropertyDescriptor,qr=(r,e,t,i)=>{for(var s=i>1?void 0:i?pl(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&dl(e,t,s),s};let Xt=class extends me{constructor(){super(...arguments),this.rippleCleanUp=null,this.clickHandler=async r=>{r.currentTarget&&[...r.currentTarget.children].forEach(e=>{e.click()})},this.childClickHandler=async r=>{r.stopPropagation()},this.ripple=!1}static get styles(){return Ee`
+        `}render(){return this.style.setProperty("--_family",this.family),this.style.setProperty("--_size",this.size),this.style.setProperty("--_mono",this.mono.toString()),this.style.setProperty("--_casl",this.casl.toString()),this.style.setProperty("--_wght",this.wght.toString()),this.style.setProperty("--_slnt",this.slnt.toString()),this.style.setProperty("--_crsv",this.crsv.toString()),ae`<slot></slot>`}};et([Y({type:String,attribute:"family",reflect:!0})],Be.prototype,"family",2);et([Y({type:String,attribute:"size",reflect:!0})],Be.prototype,"size",2);et([Y({type:Number,attribute:"mono",reflect:!0})],Be.prototype,"mono",2);et([Y({type:Number,attribute:"casl",reflect:!0})],Be.prototype,"casl",2);et([Y({type:Number,attribute:"wght",reflect:!0})],Be.prototype,"wght",2);et([Y({type:Number,attribute:"slnt",reflect:!0})],Be.prototype,"slnt",2);et([Y({type:Number,attribute:"crsv",reflect:!0})],Be.prototype,"crsv",2);Be=et([ve("ui-text")],Be);const Us=Be;var cl=Object.defineProperty,ul=Object.getOwnPropertyDescriptor,no=(r,e,t,i)=>{for(var s=i>1?void 0:i?ul(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&cl(e,t,s),s};let ls=class extends Us{constructor(){super(...arguments),this.mono=.25,this.casl=1,this.wght=750,this.slnt=0}render(){switch(this.level){case 6:this.size="0.75rem";break;case 5:this.size="1rem";break;case 4:this.size="1.25rem";break;case 3:this.size="1.5rem";break;case 2:this.size="1.75rem";break;case 1:this.size="2rem";break}return super.render()}};no([Y({type:Number,attribute:"level",reflect:!0})],ls.prototype,"level",2);ls=no([ve("ui-heading")],ls);var dl=Object.defineProperty,pl=Object.getOwnPropertyDescriptor,qr=(r,e,t,i)=>{for(var s=i>1?void 0:i?pl(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&dl(e,t,s),s};let Xt=class extends me{constructor(){super(...arguments),this.rippleCleanUp=null,this.clickHandler=async r=>{r.currentTarget&&[...r.currentTarget.children].forEach(e=>{e.click()})},this.childClickHandler=async r=>{r.stopPropagation()},this.ripple=!1}static get styles(){return Ee`
             * {
                 box-sizing: border-box;
             }
@@ -2340,7 +2340,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                 title="Bearbeiten"
                 @submit=${r=>{if(!this.data)return;const e=r.currentTarget.format,t=r.currentTarget.toolID,i=r.currentTarget.press;if(!e||!t){setTimeout(()=>this.openTableDialog({format:e,toolID:t,press:i}));return}const s=ne.queryStore(),n=be("metalSheets");try{const o={...this.data,format:e,toolID:t,data:{...this.data.data,press:i}};n.replaceInStore(s,o,this.data),this.data=o}catch(o){setTimeout(()=>this.openTableDialog({format:e,toolID:t,press:i})),alert(o);return}}}
             ></pg-metal-sheet-table-dialog>
-        `}renderTableHeader(){if(!this.data)return re``;const r=[];for(const e of this.data.data.table.header)r.push(re` <th style="text-align: center; text-wrap: pretty;">${e}</th> `);return re`${[...r]}`}renderTableBody(){if(!this.data)return re``;const r=[];for(let e=0;e<this.data.data.table.data.length;e++){const t=this.data.data.table.data[e];r.push(ze(t,re`
+        `}renderTableHeader(){if(!this.data)return re``;const r=[];for(const e of this.data.data.table.header)r.push(re` <th style="text-align: center; text-wrap: pretty;">${e}</th> `);return re`${[...r]}`}renderTableBody(){if(!this.data)return re``;const r=[];for(let e=0;e<this.data.data.table.data.length;e++){const t=this.data.data.table.data[e];r.push(Ie(t,re`
                         <tr
                             style="cursor: pointer;"
                             role="button"
@@ -2405,16 +2405,16 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     </ui-button>
                 </ui-flex-grid-item>
             </ui-flex-grid-row>
-        `}renderDialog(){return re` <pg-vis-data-dialog @submit=${async e=>{if(this.data===void 0)return;const t={...this.data};this.data.title=e.currentTarget.title;try{be("visData").replaceInStore(ne.queryStore(),{...this.data},t)}catch(i){alert(i),setTimeout(()=>{const s=e.currentTarget;s.invalidTitle=!0,s.show()})}}}></pg-vis-data-dialog> `}updated(r){r.has("data")&&setTimeout(()=>this.updateContent())}updateContent(){if(this.listItems=[],this.data===void 0)return;const r=be("visData");this.listItems=this.data.data.map((e,t)=>re`
-                <pg-vis-data-list-item
-                    data=${JSON.stringify(e)}
-                    list-key=${this.data!==void 0?r.listKey(this.data):""}
-                    entry-index=${t}
-                    show-filter
-                    route
-                >
-                </pg-vis-data-list-item>
-            `)}connectedCallback(){super.connectedCallback();const r=()=>{if(this.data===void 0)return;const s=this.querySelector("pg-vis-data-dialog");s.invalidTitle=!1,s.title=this.data.title,s.show()},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",r),this.cleanup.add(()=>{e.removeEventListener("click",r)});const t=be("visData"),i=ne.queryStore();this.cleanup.add(i.addListener("visData",s=>{if(this.data===void 0)return;const n=t.listKey(this.data);for(const o of s)if(t.listKey(o)===n){this.data=o;break}}))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};$o([ir()],Dr.prototype,"listItems",2);Dr=$o([Se("pg-page-content-vis-data")],Dr);const ou=Dr;var nu=Object.defineProperty,au=Object.getOwnPropertyDescriptor,lu=(r,e,t,i)=>{for(var s=i>1?void 0:i?au(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&nu(e,t,s),s};let hs=class extends tt{render(){return re`
+        `}renderDialog(){return re` <pg-vis-data-dialog @submit=${async e=>{if(this.data===void 0)return;const t={...this.data};this.data.title=e.currentTarget.title;try{be("visData").replaceInStore(ne.queryStore(),{...this.data},t)}catch(i){alert(i),setTimeout(()=>{const s=e.currentTarget;s.invalidTitle=!0,s.show()})}}}></pg-vis-data-dialog> `}updated(r){r.has("data")&&setTimeout(()=>this.updateContent())}updateContent(){if(this.listItems=[],this.data===void 0)return;const r=be("visData");this.listItems=this.data.data.map((e,t)=>Ie(e,re`
+                    <pg-vis-data-list-item
+                        data=${JSON.stringify(e)}
+                        list-key=${this.data!==void 0?r.listKey(this.data):""}
+                        entry-index=${t}
+                        show-filter
+                        route
+                    >
+                    </pg-vis-data-list-item>
+                `))}connectedCallback(){super.connectedCallback();const r=()=>{if(this.data===void 0)return;const s=this.querySelector("pg-vis-data-dialog");s.invalidTitle=!1,s.title=this.data.title,s.show()},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",r),this.cleanup.add(()=>{e.removeEventListener("click",r)});const t=be("visData"),i=ne.queryStore();this.cleanup.add(i.addListener("visData",s=>{if(this.data===void 0)return;const n=t.listKey(this.data);for(const o of s)if(t.listKey(o)===n){this.data=o;break}}))}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}};$o([ir()],Dr.prototype,"listItems",2);Dr=$o([Se("pg-page-content-vis-data")],Dr);const ou=Dr;var nu=Object.defineProperty,au=Object.getOwnPropertyDescriptor,lu=(r,e,t,i)=>{for(var s=i>1?void 0:i?au(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&nu(e,t,s),s};let hs=class extends tt{render(){return re`
             <div
                 class="container no-scrollbar"
                 style="${Gt({width:"100%",height:"100%",overflow:"auto"})}"
@@ -2433,7 +2433,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
             </div>
         `}updated(r){if(this.data!==void 0){const e=this.querySelector(".description");e.innerHTML=this.data.desc.join("<br/>")}}firstUpdated(r){this.style.overflow="auto"}};hs=lu([Se("pg-page-content-alert")],hs);const cu=hs;var uu=Object.defineProperty,du=Object.getOwnPropertyDescriptor,Ro=(r,e,t,i)=>{for(var s=i>1?void 0:i?du(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&uu(e,t,s),s};let gs=class extends Ce{createRenderRoot(){return this}render(){return re`
             <ui-button variant="outline" color="secondary" ripple @click=${()=>{if(this.product===void 0)return;const e=ne.queryBookmarkSelectDialog();e.product=this.product,e.show()}}>
-                <ui-svg style="width: 2rem;">${Be.smoothieLineIcons.bookmark}</ui-svg>
+                <ui-svg style="width: 2rem;">${ze.smoothieLineIcons.bookmark}</ui-svg>
                 Speichern
             </ui-button>
         `}};Ro([pe({type:Object,attribute:"product",reflect:!1})],gs.prototype,"product",2);gs=Ro([Se("pg-bookmarks-action")],gs);var pu=Object.defineProperty,hu=Object.getOwnPropertyDescriptor,Do=(r,e,t,i)=>{for(var s=i>1?void 0:i?hu(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&pu(e,t,s),s};let Lr=class extends tt{constructor(){super(...arguments),this.listItems=[]}render(){return re`
@@ -2555,7 +2555,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                               ripple
                               @click=${async()=>{r||(r=!0,setTimeout(async()=>{try{await this.deleteStoreData()}finally{r=!1}}))}}
                           >
-                              ${Be.smoothieLineIcons.trash}
+                              ${ze.smoothieLineIcons.trash}
                           </ui-icon-button>
                       </ui-flex-grid-item>`:""}
             </ui-flex-grid-row>
@@ -2573,7 +2573,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                         ripple
                         @click=${()=>{const r=ne.queryDrawer();r.open=!0}}
                     >
-                        ${Be.smoothieLineIcons.menu}
+                        ${ze.smoothieLineIcons.menu}
                     </ui-icon-button>
                 </ui-app-bar-item>
 
@@ -2583,7 +2583,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                         ripple
                         @click=${()=>{ne.queryStackLayout().goBack()}}
                     >
-                        ${Be.smoothieLineIcons.chevronLeft}
+                        ${ze.smoothieLineIcons.chevronLeft}
                     </ui-icon-button>
                 </ui-app-bar-item>
 
@@ -2592,19 +2592,19 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                 </ui-app-bar-item>
 
                 <ui-app-bar-item name="edit" slot="right" hidden>
-                    <ui-icon-button ripple ghost> ${Be.smoothieLineIcons.pen} </ui-icon-button>
+                    <ui-icon-button ripple ghost> ${ze.smoothieLineIcons.pen} </ui-icon-button>
                 </ui-app-bar-item>
 
                 <ui-app-bar-item name="share" slot="right" hidden>
-                    <ui-icon-button ripple ghost> ${Be.smoothieLineIcons.share} </ui-icon-button>
+                    <ui-icon-button ripple ghost> ${ze.smoothieLineIcons.share} </ui-icon-button>
                 </ui-app-bar-item>
 
                 <ui-app-bar-item name="search" slot="right" hidden>
-                    <ui-icon-button ripple ghost> ${Be.smoothieLineIcons.search} </ui-icon-button>
+                    <ui-icon-button ripple ghost> ${ze.smoothieLineIcons.search} </ui-icon-button>
                 </ui-app-bar-item>
 
                 <ui-app-bar-item name="trash" slot="right" hidden>
-                    <ui-icon-button ripple ghost> ${Be.smoothieLineIcons.trash} </ui-icon-button>
+                    <ui-icon-button ripple ghost> ${ze.smoothieLineIcons.trash} </ui-icon-button>
                 </ui-app-bar-item>
             </ui-app-bar>
         `}renderDrawer(){var e,t,i,s,n,o,a,c,g,m,d,b,p,w,f;const r=ne.queryStore();return re`
@@ -2838,7 +2838,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     OK
                 </ui-button>
             </ui-dialog>
-        `}renderChecklists(r){if(this.product===void 0)return re``;const e=r.getData("visBookmarks")||[],t=s=>{if(this.product===void 0)return;const n=Et(this.product);be("visBookmarks").replaceInStore(ne.queryStore(),{...s,data:this.isBookmark(s)?s.data.filter(o=>Et(o)!==n):[...s.data,this.product]},s)},i=[];for(const s of e)i.push(ze(s,re`
+        `}renderChecklists(r){if(this.product===void 0)return re``;const e=r.getData("visBookmarks")||[],t=s=>{if(this.product===void 0)return;const n=Et(this.product);be("visBookmarks").replaceInStore(ne.queryStore(),{...s,data:this.isBookmark(s)?s.data.filter(o=>Et(o)!==n):[...s.data,this.product]},s)},i=[];for(const s of e)i.push(Ie(s,re`
                         <ui-flex-grid-item>
                             <ui-label primary="${s.title}" ripple>
                                 <ui-check
@@ -2857,7 +2857,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
-                        ${ze(this.storeKey,re` <ui-input name="gistID" type="text" title="Gist ID"></ui-input> `)}
+                        ${Ie(this.storeKey,re` <ui-input name="gistID" type="text" title="Gist ID"></ui-input> `)}
                     </ui-flex-grid-item>
                 </ui-flex-grid>
 
@@ -2903,7 +2903,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     OK
                 </ui-button>
             </ui-dialog>
-        `}renderInputs(){const r=[...(this.header||[]).map((e,t)=>ze(this.entryData[t],re`
+        `}renderInputs(){const r=[...(this.header||[]).map((e,t)=>Ie(this.entryData[t],re`
                         <ui-flex-grid-item>
                             <ui-input
                                 title="${e}"
@@ -2925,7 +2925,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
             <ui-dialog title=${this.title} modal inert>
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
-                        ${ze(this.format,re`
+                        ${Ie(this.format,re`
                                 <ui-input
                                     type="text"
                                     title="Format"
@@ -2936,7 +2936,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
-                        ${ze(this.toolID,re`
+                        ${Ie(this.toolID,re`
                                 <ui-input
                                     type="text"
                                     title="Unterteil ID"
@@ -2967,7 +2967,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
                     OK
                 </ui-button>
             </ui-dialog>
-        `}renderPressSelect(){return ze(this.press,re`
+        `}renderPressSelect(){return Ie(this.press,re`
                 <ui-label primary="Presse">
                     <ui-select
                         @change=${r=>{const t=r.currentTarget.selected();t&&(this.press=parseInt(t.value,10))}}
@@ -3001,7 +3001,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
             <ui-dialog title="Bookmarks" modal inert>
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
-                        ${ze(this.title,re`
+                        ${Ie(this.title,re`
                                 <ui-input
                                     title="Name"
                                     type="text"
@@ -3036,7 +3036,7 @@ var Bo=Object.defineProperty;var zo=(r,e,t)=>e in r?Bo(r,e,{enumerable:!0,config
             <ui-dialog title="Vis Data" modal inert>
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
-                        ${ze(this.title,re`
+                        ${Ie(this.title,re`
                                 <ui-input
                                     title="Name"
                                     type="text"
@@ -3201,7 +3201,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                         ripple
                         @click=${async()=>await this.export()}
                     >
-                        ${Be.smoothieLineIcons.download}
+                        ${ze.smoothieLineIcons.download}
                     </ui-icon-button>
                 </ui-flex-grid-item>
             </ui-flex-grid-row>
