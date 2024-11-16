@@ -2688,53 +2688,47 @@ var on=Object.defineProperty;var nn=(r,e,t)=>e in r?on(r,e,{enumerable:!0,config
                     >
                         ${[...e.map(i=>ee` <td style="text-align: center;">${i}</td> `)]}
                     </tr>
-                `);return ee`${r}`}updated(r){const e=this.querySelector("tbody");vo.createMobile(e,{onDragEnd:()=>{this.data&&(this.data.data.table.data=Array.from(e.children).map(t=>{const i=t.getAttribute("data-json");if(!i)throw new Error('missing attribute "data-json"');return JSON.parse(i)}),this.requestUpdate(),this.replaceInStore(this.data))}})}firstUpdated(r){this.classList.add("no-scrollbar"),this.style.overflow="hidden",this.style.overflowY="auto"}connectedCallback(){super.connectedCallback();const r=async()=>{this.data&&this.openTableDialog({format:this.data.format,toolID:this.data.toolID,press:this.data.data.press})},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",r),this.cleanup.add(()=>{e.removeEventListener("click",r)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}openTableDialog(r){const e=this.querySelector("pg-metal-sheet-table-dialog");e.format=r.format,e.toolID=r.toolID,e.press=r.press,e.show()}replaceInStore(r){Se("metalSheets").replaceInStore(ne.queryStore(),r,r)}};vs=Au([Ee("pg-page-content-metal-sheets")],vs);const $u=vs;var Ou=Object.defineProperty,Ru=Object.getOwnPropertyDescriptor,Du=(r,e,t,i)=>{for(var s=i>1?void 0:i?Ru(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&Ou(e,t,s),s};let bs=class extends We{render(){var r;switch(super.renderListsAppBarTitle("special",this.data),(r=this.data)==null?void 0:r.type){case"flakes":return this.renderFlakes(this.data.data);default:return ee``}}renderFlakes(r){var s;const e={P0:[],P2:[],P3:[],P4:[],P5:[]};for(const n of r)(s=e[n.press])==null||s.push(n);const t=["A","C","E","G","I","K"],i={P0:"Presse 0",P2:"Presse 2",P3:"Presse 3",P4:"Presse 4",P5:"Presse 5"};return ee`
+                `);return ee`${r}`}updated(r){const e=this.querySelector("tbody");vo.createMobile(e,{onDragEnd:()=>{this.data&&(this.data.data.table.data=Array.from(e.children).map(t=>{const i=t.getAttribute("data-json");if(!i)throw new Error('missing attribute "data-json"');return JSON.parse(i)}),this.requestUpdate(),this.replaceInStore(this.data))}})}firstUpdated(r){this.classList.add("no-scrollbar"),this.style.overflow="hidden",this.style.overflowY="auto"}connectedCallback(){super.connectedCallback();const r=async()=>{this.data&&this.openTableDialog({format:this.data.format,toolID:this.data.toolID,press:this.data.data.press})},e=ne.queryAppBar().contentName("edit").contentAt(0);e.addEventListener("click",r),this.cleanup.add(()=>{e.removeEventListener("click",r)})}disconnectedCallback(){super.disconnectedCallback(),this.cleanup.run()}openTableDialog(r){const e=this.querySelector("pg-metal-sheet-table-dialog");e.format=r.format,e.toolID=r.toolID,e.press=r.press,e.show()}replaceInStore(r){Se("metalSheets").replaceInStore(ne.queryStore(),r,r)}};vs=Au([Ee("pg-page-content-metal-sheets")],vs);const $u=vs;var Ou=Object.defineProperty,Ru=Object.getOwnPropertyDescriptor,Du=(r,e,t,i)=>{for(var s=i>1?void 0:i?Ru(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&Ou(e,t,s),s};let bs=class extends We{constructor(){super(...arguments),this.towerSlots=["A","C","E","G","I","K"],this.pressConvert={P0:"Presse 0",P2:"Presse 2",P3:"Presse 3",P4:"Presse 4",P5:"Presse 5"}}render(){var r;switch(super.renderListsAppBarTitle("special",this.data),(r=this.data)==null?void 0:r.type){case"flakes":return this.renderFlakes(this.data.data);default:return ee``}}renderFlakes(r){var t;const e={P0:[],P2:[],P3:[],P4:[],P5:[]};for(const i of r)(t=e[i.press])==null||t.push(i);return ee`
             <div class="no-scrollbar" style="width: 100%; overflow-x: auto">
-                ${Object.entries(e).filter(([n,o])=>o.length>0).map(([n,o])=>Ie(o,ee`
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="100%">
-                                                ${i[n]||"Unknown"}
-                                            </th>
-                                        </tr>
-
-                                        <tr>
-                                            <th style="width: ${100/8}%">C1</th>
-                                            <th style="width: ${100/8}%">Main</th>
-                                            ${t.map(a=>ee`<th style="width: ${100/8}%">
-                                                        ${a}
-                                                    </th>`)}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${ei(o,a=>a,a=>{const l=[null,null,null,null,null,null];for(const h of a.secondary)l[t.indexOf(h.slot)]={percent:h.percent,value:h.value};return ee`
-                                                    <tr>
-                                                        <td style="text-align: center;">
-                                                            ${a.compatatore}
-                                                        </td>
-
-                                                        <td style="text-align: center;">
-                                                            ${a.primary.percent}%<br />
-                                                            ${a.primary.value}
-                                                        </td>
-
-                                                        ${l.map(h=>h===null?ee`<td></td>`:ee`
-                                                                      <td
-                                                                          style="text-align: center;"
-                                                                      >
-                                                                          ${h.percent}%<br />
-                                                                          ${h.value}
-                                                                      </td>
-                                                                  `)}
-                                                    </tr>
-                                                `})}
-                                    </tbody>
-                                </table>
-                                <br />
-                            `))}
+                ${Object.entries(e).filter(([i,s])=>s.length>0).map(([i,s])=>this.renderFlakesTable(i,s))}
             </div>
-        `}};bs=Du([Ee("pg-page-content-special")],bs);const Lu=bs;var Gu=Object.defineProperty,Fu=Object.getOwnPropertyDescriptor,ti=(r,e,t,i)=>{for(var s=i>1?void 0:i?Fu(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&Gu(e,t,s),s};let or=class extends We{constructor(){super(...arguments),this.listItems=[],this.cleanup=new He}render(){var r;return super.renderListsAppBarTitle("vis",this.data),ee`
+        `}renderFlakesTable(r,e){return Ie(r,ee`
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="100%">
+                                ${this.pressConvert[r]||"Unknown"}
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th style="width: ${100/8}%">C1</th>
+                            <th style="width: ${100/8}%">Main</th>
+                            ${this.towerSlots.map(t=>ee`<th style="width: ${100/8}%">${t}</th>`)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${this.renderFlakesTableEntries(e)}
+                    </tbody>
+                </table>
+                <br />
+            `)}renderFlakesTableEntries(r){return ei(r,e=>e,e=>{const t=[null,null,null,null,null,null];for(const i of e.secondary)t[this.towerSlots.indexOf(i.slot)]={percent:i.percent,value:i.value};return ee`
+                    <tr>
+                        <td style="text-align: center;">${e.compatatore}</td>
+
+                        <td style="text-align: center;">
+                            ${e.primary.percent}%<br />
+                            ${e.primary.value}
+                        </td>
+
+                        ${t.map(i=>i===null?ee`<td></td>`:ee`
+                                      <td style="text-align: center;">
+                                          ${i.percent}%<br />
+                                          ${i.value}
+                                      </td>
+                                  `)}
+                    </tr>
+                `})}};bs=Du([Ee("pg-page-content-special")],bs);const Lu=bs;var Gu=Object.defineProperty,Fu=Object.getOwnPropertyDescriptor,ti=(r,e,t,i)=>{for(var s=i>1?void 0:i?Fu(e,t):e,n=r.length-1,o;n>=0;n--)(o=r[n])&&(s=(i?o(e,t,s):o(s))||s);return i&&s&&Gu(e,t,s),s};let or=class extends We{constructor(){super(...arguments),this.listItems=[],this.cleanup=new He}render(){var r;return super.renderListsAppBarTitle("vis",this.data),ee`
             <pg-search-bar
                 title="Produktsuche"
                 storage-key="${(r=this.data)==null?void 0:r.title}"
