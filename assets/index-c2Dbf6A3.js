@@ -2696,8 +2696,18 @@ var on=Object.defineProperty;var nn=(r,e,t)=>e in r?on(r,e,{enumerable:!0,config
                 <table>
                     <thead>
                         <tr>
-                            <th colspan="100%">
-                                ${this.pressConvert[r]||"Unknown"}
+                            <th style="text-align: left;" colspan="100%">
+                                <span>
+                                    ${this.pressConvert[r]||"Unknown"}
+                                </span>
+                                <ui-button
+                                    style="float: right;"
+                                    variant="full"
+                                    color="primary"
+                                    @click=${async()=>{}}
+                                >
+                                    Neuer Eintrag
+                                </ui-button>
                             </th>
                         </tr>
 
