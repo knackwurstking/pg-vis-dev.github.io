@@ -2788,7 +2788,7 @@ var an=Object.defineProperty;var ln=(r,e,t)=>e in r?an(r,e,{enumerable:!0,config
                                     style="float: right;"
                                     variant="full"
                                     color="primary"
-                                    @click=${async()=>{const t=this.querySelector("pg-flakes-entry");t.entry={press:r,compatatore:25,primary:{percent:0,value:0},secondary:[]},t.create=!0,t.show()}}
+                                    @click=${async()=>{const t=this.querySelector("pg-flakes-entry-dialog");t.entry={press:r,compatatore:25,primary:{percent:0,value:0},secondary:[]},t.create=!0,t.show()}}
                                 >
                                     Neuer Eintrag
                                 </ui-button>
@@ -2809,7 +2809,7 @@ var an=Object.defineProperty;var ln=(r,e,t)=>e in r?an(r,e,{enumerable:!0,config
             `)}renderFlakesTableEntries(r){return Jr(r,e=>e,e=>{const t=[null,null,null,null,null,null];for(const i of e.secondary)t[this.towerSlots.indexOf(i.slot)]={percent:i.percent,value:i.value};return ee`
                     <tr
                         style="cursor: pointer;"
-                        @click=${()=>{const i=this.querySelector("pg-flakes-entry");i.entry=e,i.create=!1,i.show()}}
+                        @click=${()=>{const i=this.querySelector("pg-flakes-entry-dialog");i.entry=e,i.create=!1,i.show()}}
                     >
                         <td style="text-align: center;">${e.compatatore}</td>
 
