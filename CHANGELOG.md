@@ -2,22 +2,27 @@
 
 ## v1.1.0 — [unreleased]
 
-- [ ] Add Print to pdf button for metal sheets page
-- [ ] Add Print to pdf button for flakes (special) page
-- [x] Add "Flakes" special
-- [x] Add "mm" suffix to vis search (product list items)
-- [x] Create a GitHub pages repo for dev
-- [x] Convert project to typescript using lit
-- [x] Update icons, just like the picow-led-server project
-- [x] Open a confirmation dialog before deleting a drawer item
-- [x] Vis Lists entries should always take current vis product data if possible
-- [x] Add a search bar for vis data
-- [x] Edit Vis Data from the product page, just click to edit
-- [x] Make Vis Data "title" optional
-- [x] Redesign the gist (drawer) and import/download items
+- [ui v1.1.0](https://github.com/knackwurstking/ui)
 
+**TODOs**:
 - [ ] Replace "pg-vis-dev.github.io" with "pg-vis.github.io" before publishing
-- [ ] ~Replace "pg-vis-dev:" with "pg-vis:"~
+
+**General**:
+
+- Switched code base to typescript using https://lit.dev/
+- Take bookmarks data from the "Vis" if possible
+- Renamed "Vis Listen" to "Vis Bookmarks"
+- Changed "Vis Data": "title" field is now optional
+- Changed gist handling
+
+**Added**:
+
+- Added a new theme "gruvbox" & a theme switcher
+- Added vis data edit to the product page
+- Added a search bar to the metal sheets page
+- Added confirmation dialogs to delete action on drawer items
+- Added new drawer group: "Spezial" for "Flakes"
+- Added download (printer) button to metal sheets and flakes pages
 
 ## v1.0.0 — [2024-08-12]
 
