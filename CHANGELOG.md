@@ -1,5 +1,10 @@
 # Changelog
 
+> **NOTE if push to dev**:
+>
+> - Replace "pg-vis.github.io" with "pg-vis-dev.github.io"
+> - Change store prefix from "pg-vis:" to "pg-vis-dev:"
+
 # v1.1.3 [unreleased]
 
 **Fixed**:
