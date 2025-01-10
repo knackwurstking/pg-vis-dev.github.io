@@ -1,15 +1,43 @@
 # Changelog
 
-## v1.1.0 — [unreleased]
+# v1.1.3 [unreleased]
+
+-[ ] Fix metal-sheet creation overwriting existing one [work-in-progress]
+
+# v1.1.2 — [2024-11-20]
+
+- [ui v1.1.1](https://github.com/knackwurstking/ui)
+
+**Changed**:
+
+- Changed input type from number to text
+
+## v1.1.1 — [2024-11-18]
+
+**Changed**:
+
+- Changed Highlighting for flakes percentages
+
+**Fixed**:
+
+- Fixed missing search bar in safari, flakes page positioning
+- Fixed sorting for flakes entries
+- Fixed flakes data validation
+- Fixed zero consumption on tower slots
+- Fixed "flakes" dialog, using keyed for inputs on entry object
+
+## v1.1.0 — [2024-11-18]
 
 - [ui v1.1.0](https://github.com/knackwurstking/ui)
 
 **TODOs**:
-- [ ] Replace "pg-vis-dev.github.io" with "pg-vis.github.io" before publishing
+
+- [x] Change dev app icons
+- [x] Replace "pg-vis-dev.github.io" with "pg-vis.github.io" before publishing
 
 **General**:
 
-- Switched code base to typescript using https://lit.dev/
+- Switched code base to typescript using <https://lit.dev/>
 - Take bookmarks data from the "Vis" if possible
 - Renamed "Vis Listen" to "Vis Bookmarks"
 - Changed "Vis Data": "title" field is now optional
