@@ -2,7 +2,9 @@
 
 # v1.1.3 [unreleased]
 
--[ ] Fix metal-sheet creation overwriting existing one [work-in-progress]
+**Fixed**:
+
+- Fixed overwriting of “Metal Sheets” and “Vis Data” lists in some cases.
 
 # v1.1.2 — [2024-11-20]
 
