@@ -5,13 +5,23 @@
 > - Replace "pg-vis.github.io" with "pg-vis-dev.github.io"
 > - Change store prefix from "pg-vis:" to "pg-vis-dev:"
 
-# v1.1.3 [unreleased]
+## v1.1.4 [unreleased]
+
+**TODO**:
+
+- [ ] Move active items to the top of the metal sheet list in the drawer [v1.2.0]
+
+**Fixed**:
+
+- Fixed missing table headers after creating a new metal sheet list
+
+## v1.1.3 — [2025-01-10]
 
 **Fixed**:
 
 - Fixed overwriting of “Metal Sheets” and “Vis Data” lists in some cases.
 
-# v1.1.2 — [2024-11-20]
+## v1.1.2 — [2024-11-20]
 
 - [ui v1.1.1](https://github.com/knackwurstking/ui)
 
