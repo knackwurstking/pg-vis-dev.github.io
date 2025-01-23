@@ -5,12 +5,26 @@
 > - Replace "pg-vis.github.io" with "pg-vis-dev.github.io"
 > - Change store prefix from "pg-vis:" to "pg-vis-dev:"
 
+## v2.0.0 [unreleased]
+
+> I can't release this until [ui v2.0.0](https://github.com/knackwurstking/ui/tree/dev?tab=readme-ov-file) is complete
+
+**Updated**:
+
+- Updated UI library to [v2.0.0](https://github.com/knackwurstking/ui/tree/dev?tab=readme-ov-file)
+
+## v1.2.1 [2024-01-16]
+
+**Fixed**:
+
+- Fixed sorting of metal sheet list keys, active ones not always on top
+
 ## v1.2.0 [2024-01-16]
 
 **Changed**:
 
 - Changed metal sheet list sorting, active items will be moved to the top of the list. Need to
-  refresh metel sheet lists data, just push the update button for metal sheets :)
+  refresh metal sheet lists data, just push the update button for metal sheets :)
 
 **Fixed**:
 
