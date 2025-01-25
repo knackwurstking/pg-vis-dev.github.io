@@ -12,7 +12,7 @@
 
         <title>PG: Vis</title>
 
-      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-BO5IKlpg.js"></script>
+      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-Dv3mg1Km.js"></script>
       <link rel="stylesheet" crossorigin href="/pg-vis-dev.github.io/assets/index-Bbey3Cas.css">
     <link rel="manifest" href="/pg-vis-dev.github.io/manifest.webmanifest"></head>
 
@@ -112,7 +112,7 @@
                 <details class="group" name="alert-lists">
                     <summary><h4>Alarm Listen</h4></summary>
                     <div class="ui-flex-grid">
-                        <ul class="items"></ul>
+                        <ul class="items" style="width: 100%"></ul>
                     </div>
                 </details>
 
@@ -120,7 +120,7 @@
                 <details class="group" name="metal-sheets">
                     <summary><h4>Blech Listen</h4></summary>
                     <div class="ui-flex-grid">
-                        <ul class="items"></ul>
+                        <ul class="items" style="width: 100%"></ul>
                     </div>
                 </details>
 
@@ -128,7 +128,7 @@
                 <details class="group" name="vis">
                     <summary><h4>VIS</h4></summary>
                     <div class="ui-flex-grid">
-                        <ul class="items"></ul>
+                        <ul class="items" style="width: 100%"></ul>
                     </div>
                 </details>
 
@@ -136,7 +136,7 @@
                 <details class="group" name="vis-bookmarks">
                     <summary><h4>VIS: Bookmarks</h4></summary>
                     <div class="ui-flex-grid">
-                        <ul class="items"></ul>
+                        <ul class="items" style="width: 100%"></ul>
                     </div>
                 </details>
 
@@ -144,7 +144,7 @@
                 <details class="group" name="vis-data">
                     <summary><h4>VIS: Data</h4></summary>
                     <div class="ui-flex-grid">
-                        <ul class="items"></ul>
+                        <ul class="items" style="width: 100%"></ul>
                     </div>
                 </details>
 
@@ -152,7 +152,7 @@
                 <details class="group" name="special">
                     <summary><h4>Spezial</h4></summary>
                     <div class="ui-flex-grid">
-                        <ul class="items"></ul>
+                        <ul class="items" style="width: 100%"></ul>
                     </div>
                 </details>
             </div>
@@ -160,6 +160,17 @@
 
         <template name="gist-ids">
             <ul class="gist-ids ui-flex-grid" style="padding: var(--ui-spacing)"></ul>
+        </template>
+
+        <template name="alert-lists">
+            <ul class="alerts" style="padding: var(--ui-spacing)"></ul>
+        </template>
+
+        <template name="alert">
+            <div class="ui-flex-grid">
+                <div class="alert ui-flex-grid-item" style="width: 100%"></div>
+                <div class="desc ui-flex-grid-item" style="width: 100%"></div>
+            </div>
         </template>
 
     </body>
