@@ -13,7 +13,7 @@
         <title>PG: Vis</title>
 
 
-      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-BnSpwLGJ.js"></script>
+      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-Ds9qOTS9.js"></script>
       <link rel="stylesheet" crossorigin href="/pg-vis-dev.github.io/assets/index-CVOMIGuw.css">
     <link rel="manifest" href="/pg-vis-dev.github.io/manifest.webmanifest"></head>
 
@@ -32,6 +32,7 @@
                     variant="ghost"
                     color="primary"
                     icon
+                    onclick="history.back()"
                 >
                     <div class="bi bi-chevron-left"></div>
                 </button>
@@ -62,45 +63,25 @@
                     <div class="bi bi-plus-square"></div>
                 </button>
 
-                <!--button
-                    id="appBarButtonShare"
+                <button
+                    id="appBarButtonBookmarks"
                     style="display: none"
                     variant="ghost"
                     color="primary"
                     icon
                 >
-                    <div class="bi bi-share"></div>
-                </button-->
+                    <div class="bi bi-bookmarks"></div>
+                </button>
 
-                <!--button
-                    id="appBarButtonSearch"
+                <button
+                    id="appBarButtonBookmarksFill"
                     style="display: none"
                     variant="ghost"
                     color="primary"
                     icon
                 >
-                    <div class="bi bi-search"></div>
-                </button-->
-
-                <!--button
-                    id="appBarButtonTrash"
-                    style="display: none"
-                    variant="ghost"
-                    color="primary"
-                    icon
-                >
-                    <div class="bi bi-trash"></div>
-                </button-->
-
-                <!--button
-                    id="appBarButtonPrinter"
-                    style="display: none"
-                    variant="ghost"
-                    color="primary"
-                    icon
-                >
-                    <div class="bi bi-printer"></div>
-                </button-->
+                    <div class="bi bi-bookmarks-fill"></div>
+                </button>
             </div>
         </div>
 
@@ -325,7 +306,12 @@
                     <fieldset>
                         <legend>Suche nach Alarmen:</legend>
                         <div class="ui-flex-grid-row">
-                            <input style="width: 100%" type="search" placeholder="Suche..." />
+                            <input
+                                id="alertListsSearchBar"
+                                style="width: 100%"
+                                type="search"
+                                placeholder="Suche..."
+                            />
                         </div>
                     </fieldset>
                 </section>
@@ -359,7 +345,12 @@
                     <fieldset>
                         <legend>Suche nach Produkten:</legend>
                         <div class="ui-flex-grid-row">
-                            <input style="width: 100%" type="search" placeholder="Suche..." />
+                            <input
+                                id="visSearchBar"
+                                style="width: 100%"
+                                type="search"
+                                placeholder="Suche..."
+                            />
                         </div>
                     </fieldset>
                 </section>
@@ -374,7 +365,16 @@
         </template>
 
         <template name="product">
-            <!-- TODO: Product page here... -->
+            <div class="ui-flex-grid" style="--gap: 0; width: 100%; height: 100%">
+                <section class="product-item-container" style="width: 100%"></section>
+
+                <div
+                    class="ui-flex-grid-item ui-auto-scroll-y ui-hide-scrollbar"
+                    style="width: 100%"
+                >
+                    <ul class="product-data" style="padding: var(--ui-spacing) width: 100%;"></ul>
+                </div>
+            </div>
         </template>
     </body>
 </html>
