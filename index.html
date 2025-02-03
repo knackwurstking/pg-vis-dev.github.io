@@ -13,7 +13,7 @@
         <title>PG: Vis</title>
 
 
-      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-CYlb9zrk.js"></script>
+      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-pDUAnKwR.js"></script>
       <link rel="stylesheet" crossorigin href="/pg-vis-dev.github.io/assets/index-CVOMIGuw.css">
     <link rel="manifest" href="/pg-vis-dev.github.io/manifest.webmanifest"></head>
 
@@ -494,7 +494,7 @@
         <template name="product">
             <div class="ui-flex-grid" style="--gap: 0; width: 100%; height: 100%">
                 <section
-                    class="product-item-container"
+                    class="product-item"
                     style="--gap: var(--ui-spacing); width: 100%"
                 ></section>
 
@@ -504,6 +504,12 @@
                 >
                     <ul class="product-data" style="padding: var(--ui-spacing) width: 100%;"></ul>
                 </div>
+            </div>
+        </template>
+
+        <template name="vis-bookmarks">
+            <div class="ui-auto-scroll-y ui-hide-scrollbar" style="width: 100%; height: 100%">
+                <ul class="products"></ul>
             </div>
         </template>
     </body>
