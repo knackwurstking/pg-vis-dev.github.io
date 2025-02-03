@@ -13,7 +13,7 @@
         <title>PG: Vis</title>
 
 
-      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-BGe73c0n.js"></script>
+      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-Cmx8i47F.js"></script>
       <link rel="stylesheet" crossorigin href="/pg-vis-dev.github.io/assets/index-CVOMIGuw.css">
     <link rel="manifest" href="/pg-vis-dev.github.io/manifest.webmanifest"></head>
 
@@ -71,16 +71,6 @@
                     icon
                 >
                     <div class="bi bi-bookmarks"></div>
-                </button>
-
-                <button
-                    id="appBarButtonBookmarksFill"
-                    style="display: none"
-                    variant="ghost"
-                    color="primary"
-                    icon
-                >
-                    <div class="bi bi-bookmarks-fill"></div>
                 </button>
 
                 <button
@@ -409,15 +399,26 @@
             </form>
         </dialog>
 
-        <dialog name="choose" oncancel="event.preventDefault()">
+        <dialog name="choose">
             <div class="ui-flex-grid-row">
-                <h4 class="title ui-flex-grid-item">???</h4>
+                <h4 class="title ui-flex-grid-item"></h4>
                 <button class="close" variant="ghost" color="primary" icon>
                     <i class="bi bi-x-lg"></i>
                 </button>
             </div>
 
             <div class="choices ui-flex-grid-row" style="--warp: wrap"></div>
+        </dialog>
+
+        <dialog name="product-bookmark">
+            <div class="ui-flex-grid-row">
+                <h4 class="title ui-flex-grid-item"></h4>
+                <button class="close" variant="ghost" color="primary" icon>
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <ul class="checkboxes"></ul>
         </dialog>
 
         <template name="gist-ids">
