@@ -13,7 +13,7 @@
         <title>PG: Vis</title>
 
 
-      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-xuFl5m13.js"></script>
+      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-Bm2I3wRm.js"></script>
       <link rel="stylesheet" crossorigin href="/pg-vis-dev.github.io/assets/index-CVOMIGuw.css">
     <link rel="manifest" href="/pg-vis-dev.github.io/manifest.webmanifest"></head>
 
@@ -108,6 +108,22 @@
                         <button class="download" variant="ghost" color="primary" icon>
                             <i class="bi bi-file-arrow-down" title="Download ZIP Archive"></i>
                         </button>
+
+                        <!-- TODO: Import alert list from a file (type: json) -->
+                        <button
+                            class="import-from-file"
+                            variant="ghost"
+                            color="primary"
+                            icon
+                            disabled
+                        >
+                            <i class="bi bi-file-arrow-up" title="Import data from .txt file"></i>
+                        </button>
+
+                        <!-- TODO: Create new alert list -->
+                        <button class="add" variant="ghost" color="primary" icon disabled>
+                            <i class="bi bi-plus-square" title="create a new list"></i>
+                        </button>
                     </div>
 
                     <div class="ui-flex-grid">
@@ -121,11 +137,22 @@
 
                     <div class="actions ui-flex-grid-row" style="--justify: flex-end">
                         <button class="download" variant="ghost" color="primary" icon>
-                            <i class="bi bi-file-arrow-down" title="Download ZIP archive"></i>
+                            <i class="bi bi-file-arrow-down" title="download zip archive"></i>
+                        </button>
+
+                        <!-- TODO: Import from file (type: json) -->
+                        <button
+                            class="import-from-file"
+                            variant="ghost"
+                            color="primary"
+                            icon
+                            disabled
+                        >
+                            <i class="bi bi-file-arrow-up" title="Import data from .txt file"></i>
                         </button>
 
                         <button class="add" variant="ghost" color="primary" icon>
-                            <i class="bi bi-plus-square" title="Create a new list"></i>
+                            <i class="bi bi-plus-square" title="create a new list"></i>
                         </button>
                     </div>
 
@@ -151,6 +178,7 @@
                             <i class="bi bi-plus-square" title="Create a new list"></i>
                         </button>
                     </div>
+
                     <div class="ui-flex-grid">
                         <ul class="items" style="width: 100%"></ul>
                     </div>
@@ -159,6 +187,7 @@
                 <!-- VIS Bookmarks Group -->
                 <details class="group" name="vis-bookmarks">
                     <summary><h4>VIS: Bookmarks</h4></summary>
+
                     <div class="ui-flex-grid">
                         <ul class="items" style="width: 100%"></ul>
                     </div>
@@ -167,6 +196,28 @@
                 <!-- VIS: Data Group -->
                 <details class="group" name="vis-data">
                     <summary><h4>VIS: Data</h4></summary>
+
+                    <div class="actions ui-flex-grid-row" style="--justify: flex-end">
+                        <button class="download" variant="ghost" color="primary" icon>
+                            <i class="bi bi-file-arrow-down" title="Download ZIP Archive"></i>
+                        </button>
+
+                        <!-- TODO: Import from file -->
+                        <button
+                            class="import-from-file"
+                            variant="ghost"
+                            color="primary"
+                            icon
+                            disabled
+                        >
+                            <i class="bi bi-file-arrow-up" title="Import data from .txt file"></i>
+                        </button>
+
+                        <button class="add" variant="ghost" color="primary" icon>
+                            <i class="bi bi-plus-square" title="Create a new list"></i>
+                        </button>
+                    </div>
+
                     <div class="ui-flex-grid">
                         <ul class="items" style="width: 100%"></ul>
                     </div>
@@ -175,6 +226,7 @@
                 <!-- Special Group -->
                 <details class="group" name="special">
                     <summary><h4>Spezial</h4></summary>
+
                     <div class="ui-flex-grid">
                         <ul class="items" style="width: 100%"></ul>
                     </div>
@@ -399,6 +451,29 @@
             </form>
         </dialog>
 
+        <dialog name="vis-data" oncancel="event.preventDefault()">
+            <div class="ui-flex-grid-row">
+                <h4 class="ui-flex-grid-item">VIS: Data</h4>
+                <button class="close" variant="ghost" color="primary" icon>
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <form method="dialog">
+                <div class="ui-flex-grid">
+                    <div class="ui-flex-grid-row" style="--align: center">
+                        <label for="visDialog_Title">Title</label>
+                        <input id="visDialog_Title" style="width: 100%" type="text" />
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--justify: flex-end">
+                        <input type="reset" />
+                        <input type="submit" />
+                    </div>
+                </div>
+            </form>
+        </dialog>
+
         <dialog name="choose">
             <div class="ui-flex-grid-row">
                 <h4 class="title ui-flex-grid-item"></h4>
@@ -419,6 +494,85 @@
             </div>
 
             <ul class="checkboxes"></ul>
+        </dialog>
+
+        <dialog name="vis-data-entry" style="width: 100%" oncancel="event.preventDefault()">
+            <div class="ui-flex-grid-row">
+                <h4 class="ui-flex-grid-item">Vis Data Eintrag</h4>
+                <button class="close" variant="ghost" color="primary" icon>
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <form method="dialog">
+                <div class="ui-flex-grid">
+                    <div class="ui-flex-grid" style="--gap: 0">
+                        <label for="visDataEntry_Key">Key</label>
+                        <input
+                            class="vis-data-entry-input"
+                            id="visDataEntry_Key"
+                            style="width: 100%"
+                            type="text"
+                        />
+                    </div>
+
+                    <div class="ui-flex-grid" style="--gap: 0">
+                        <label for="visDataEntry_Value">Value</label>
+                        <textarea
+                            class="vis-data-entry-input"
+                            id="visDataEntry_Value"
+                            style="width: 100%; resize: none"
+                            type="text"
+                            rows="10"
+                        ></textarea>
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--align: center; --justify: space-between">
+                        <label for="visDataEntry_Lotto">Lotto</label>
+                        <input class="vis-data-entry-input" id="visDataEntry_Lotto" type="text" />
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--align: center; --justify: space-between">
+                        <label for="visDataEntry_Name">Name</label>
+                        <input class="vis-data-entry-input" id="visDataEntry_Name" type="text" />
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--align: center; --justify: space-between">
+                        <label for="visDataEntry_Format">Format</label>
+                        <input
+                            class="vis-data-entry-input"
+                            id="visDataEntry_Format"
+                            style="width: 15ch"
+                            type="text"
+                        />
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--align: center; --justify: space-between">
+                        <label for="visDataEntry_Thickness">Stärke</label>
+                        <input
+                            class="vis-data-entry-input"
+                            id="visDataEntry_Thickness"
+                            style="width: 10ch"
+                            type="number"
+                        />
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--align: center; --justify: space-between">
+                        <label for="visDataEntry_Stamp">Stempel</label>
+                        <input
+                            class="vis-data-entry-input"
+                            id="visDataEntry_Stamp"
+                            style="width: 15ch"
+                            type="text"
+                        />
+                    </div>
+                </div>
+
+                <div class="ui-flex-grid-row" style="--justify: flex-end">
+                    <input type="reset" />
+                    <input type="submit" />
+                </div>
+            </form>
         </dialog>
 
         <template name="gist-ids">
@@ -445,7 +599,7 @@
                     class="ui-flex-grid-item ui-auto-scroll-y ui-hide-scrollbar"
                     style="--gap: var(--ui-spacing); width: 100%"
                 >
-                    <ul class="alerts" style="padding: var(--ui-spacing) width: 100%;"></ul>
+                    <ul class="alerts" style="padding: var(--ui-spacing); width: 100%"></ul>
                 </div>
             </div>
         </template>
@@ -486,7 +640,7 @@
                 >
                     <ul
                         class="products ui-none-select"
-                        style="padding: var(--ui-spacing) width: 100%;"
+                        style="padding: var(--ui-spacing); width: 100%"
                     ></ul>
                 </div>
             </div>
@@ -511,6 +665,34 @@
         <template name="vis-bookmarks">
             <div class="ui-auto-scroll-y ui-hide-scrollbar" style="width: 100%; height: 100%">
                 <ul class="products"></ul>
+            </div>
+        </template>
+
+        <template name="vis-data">
+            <div class="ui-flex-grid" style="--gap: 0; width: 100%; height: 100%">
+                <section class="search-bar" style="--gap: var(--ui-spacing); width: 100%">
+                    <fieldset>
+                        <legend>Suche nach Daten:</legend>
+                        <div class="ui-flex-grid-row">
+                            <input
+                                id="visDataSearchBar"
+                                style="width: 100%"
+                                type="search"
+                                placeholder="Suche..."
+                            />
+                        </div>
+                    </fieldset>
+                </section>
+
+                <div
+                    class="ui-flex-grid-item ui-auto-scroll-y ui-hide-scrollbar"
+                    style="--gap: var(--ui-spacing); width: 100%"
+                >
+                    <ul
+                        class="data-list ui-none-select"
+                        style="padding: var(--ui-spacing); width: 100%"
+                    ></ul>
+                </div>
             </div>
         </template>
     </body>
