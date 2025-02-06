@@ -13,7 +13,7 @@
         <title>PG: Vis</title>
 
 
-      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-BRnHv_ef.js"></script>
+      <script type="module" crossorigin src="/pg-vis-dev.github.io/assets/index-DonCDfCT.js"></script>
       <link rel="stylesheet" crossorigin href="/pg-vis-dev.github.io/assets/index-CVOMIGuw.css">
     <link rel="manifest" href="/pg-vis-dev.github.io/manifest.webmanifest"></head>
 
@@ -43,6 +43,8 @@
             </div>
 
             <div class="right">
+                <!-- TODO: Printer icon button -->
+
                 <button
                     id="appBarButtonListEdit"
                     style="display: none"
@@ -558,6 +560,25 @@
                 </div>
 
                 <div class="ui-flex-grid-row" style="--justify: flex-end">
+                    <input type="reset" />
+                    <input type="submit" />
+                </div>
+            </form>
+        </dialog>
+
+        <dialog name="special-flakes-entry" oncancel="event.preventDefault()">
+            <div class="ui-flex-grid-row">
+                <h4 class="ui-flex-grid-item">Flakes</h4>
+                <button class="close" variant="ghost" color="primary" icon>
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <form method="dialog">
+                <div class="inputs ui-flex-grid" style="--gap: 1rem"></div>
+
+                <div class="ui-flex-grid-row" style="--justify: flex-end">
+                    <!-- TODO: Delete button -->
                     <input type="reset" />
                     <input type="submit" />
                 </div>
