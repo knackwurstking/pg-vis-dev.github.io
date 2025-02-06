@@ -301,7 +301,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         </thead>
 
         <tbody></tbody>
-    `;const n=s.querySelector("tbody");return r=r.sort((o,i)=>o.primary.value>i.primary.value?-1:1).sort((o,i)=>o.primary.percent>i.primary.percent?-1:1),r.forEach((o,i)=>{const a=document.createElement("tr");t&&(a.classList.add("ui-none-select"),a.style.cursor="pointer",a.oncontextmenu=async c=>{c.preventDefault(),confirm(`You want to delete this entry: "${o.press};${o.compatatore};${o.primary.value};${o.secondary.map(p=>`${p.percent}%,${p.value}`).join(";")}" ?`)&&t(r.filter((p,m)=>m!==i))},a.onclick=async()=>{const c=await init$2(o);c&&(r[i]=c,t(r))});{let c=document.createElement("td");c.innerText=o.compatatore.toString(),a.appendChild(c),c=document.createElement("td"),c.innerHTML=html`
+    `;const n=s.querySelector("tbody");return r=r.sort((o,i)=>o.primary.value>i.primary.value?-1:1).sort((o,i)=>o.primary.percent>i.primary.percent?-1:1),r.forEach((o,i)=>{const a=document.createElement("tr");t&&(a.role="button",a.classList.add("ui-none-select"),a.style.cursor="pointer",a.oncontextmenu=async c=>{c.preventDefault(),confirm(`You want to delete this entry: "${o.press};${o.compatatore};${o.primary.value};${o.secondary.map(p=>`${p.percent}%,${p.value}`).join(";")}" ?`)&&t(r.filter((p,m)=>m!==i))},a.onclick=async()=>{const c=await init$2(o);c&&(r[i]=c,t(r))});{let c=document.createElement("td");c.innerText=o.compatatore.toString(),a.appendChild(c),c=document.createElement("td"),c.innerHTML=html`
                 <span>${o.primary.percent}%</span>
                 <br />
                 <span>${o.primary.value}</span>
